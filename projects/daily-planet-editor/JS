@@ -1,0 +1,10 @@
+var shopper = {
+    fruit:"bnanan",
+    food:"taco",
+    dessert:"cookie",
+    dinner:function(){
+        retyrn this "fruit"+" "+"food"+" "+"dessert"
+
+    }
+
+};
