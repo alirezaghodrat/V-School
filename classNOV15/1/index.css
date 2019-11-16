@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box; 
+    font-size: 0px;
+}
+.pink{
+    height: 400px;
+   codewidth: 100%; 
+   background-color:#F5C6D6
+}
