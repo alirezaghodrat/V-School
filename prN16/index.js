@@ -175,7 +175,6 @@
 // //     return a+b
 // // }
 // // console.log(sum(3,4))
-
 // function sum (a,b){
 //     return a+b
 // }
@@ -285,23 +284,58 @@ function finder (a,b,c) {
 
         //
 
-        var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        var sln = txt.length
+   
+        //  var str = "HELLO WORLD";
 
-        function hamid (sln){
-            if(sln<20){
-            return sln+sln
-            }else
-            return sln/2
-        }
+        //  if(i=0,i<str.length,i++){
+        //      console.log(str(i))
 
-        console.log(hamid)
+        //  }
 
 
-
-
+function farhad (a,b){
+     return a+b
+}
+console.log(farhad(3,3))
 
 
 
+function sum (a,b){
+    return a+b
+}
+console.log(sum(2,3))
 
 
+
+
+
+
+
+function see (a,b,c){
+if(a>b&&a>c){
+    return a
+}else if (b>c&&b>a){
+    return b
+}else
+return c
+}
+
+console.log(see(3,6,998))
+
+
+
+
+
+
+function fuck (a){
+    if(a%2===0){
+        return "even"
+    }else
+    return "odd"
+}
+
+console.log(fuck(11))
+
+var mehdi = alireza
+
+function hard(mehdi)

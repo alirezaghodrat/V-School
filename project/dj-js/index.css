@@ -1,0 +1,34 @@
+*{
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+
+
+.box{
+    display: inline-block;
+    width: 300pt;
+    height: 300pt;
+    background-color: black;
+    border: 5pt;
+    margin: 5pt;
+    padding: 5pt;
+}
+
+#this-one{
+    background-color: greenyellow;
+    width: 200pt;
+    height: 200pt;
+    display: inline-block;
+}
+
+#a{
+    display: inline-block;
+    width: 200pt;
+    height: 200pt;
+    background-color:red;
+    border: 5pt;
+    margin: 5pt;
+    padding: 5pt;
+
+}

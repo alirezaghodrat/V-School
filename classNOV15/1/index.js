@@ -157,32 +157,94 @@
 
 
 
-function ali(a){
-    if ( a % 2 === 0 ){
-        return "even"
-    }else if ( a % 2 !== 0 ){
-        return "odd"
-    }
+// function ali(a){
+//     if ( a % 2 === 0 ){
+//         return "even"
+//     }else if ( a % 2 !== 0 ){
+//         return "odd"
+//     }
 
-}
+// }
 
-console.log(ali(2))
+// console.log(ali(2))
 
 
 //
 
-var string =[1,2]
+// var string =[1,2]
 
-function hamid (string){
-     if(string.length[i]<=20){
-         return"string+string"
-     }else (string.length[i]>20) 
-          return"string/2"
-     }
+// function hamid (string){
+//      if(string.length[i]<=20){
+//          return"string+string"
+//      }else (string.length[i]>20) 
+//           return"string/2"
+//      }
 
     
 
-    console.log(hamid)
+//     console.log(hamid)
 
 
+// var a =[]
+//  var fruit = ["banana", "orange", "apple", "kiwi", "pear", "peach"]
+//  for( i=0 ;  i <  fruit.length ; i += 2 ){
+//       a.push(fruit[i])
+//  }
+//  console.log(a)
+
+
+//  var kir =["bnana","orang","apple","kiwi","peach","pear"]
+// var result =[]
+// for(i=0;i<kir.length;i += 2 ){
+//     result.push(kir[i])
+// }
+// console.log(kir)
+
+
+// function sum(a,b){
+//    return a+b
+// }
+// console.log(sum(3,5))
  
+
+// var sum =function(a,b){
+//     console.log(a+b)
+// }
+// sum (2,3)
+
+// var a =[1,2,1,1,2,0]
+// var count = 0
+// for(i=0;i<a.length;i++){
+//     if([i])
+// }
+
+
+
+// function letterCount(str) {
+//     let count = 0;
+//     let results = []
+//     let newArr = str.split('')
+//     let sorted = newArr.sort()
+//     for (let i = 0; i < newArr.length - 1; i++) {
+//       if(sorted[i + 1] === sorted[i])
+//       results.push(sorted[i])
+//     }
+//     console.log(results)
+//   }
+//   letterCount('a;sdkfd')
+
+
+//   var fruit = ["banana", "orange", "apple", "kiwi", "pear", "peach"]
+//   var result=[]
+// for(i=0;i<fruit.length;i=+2){
+//       result.push(fruit[i])
+// }
+// console.log(fruit)
+
+// var kir =["bnana","orang","apple","kiwi","peach","pear"]
+// var result =[]
+// for(i=0;i<kir.length;i =+ 2 ){
+//     result.push(kir[i])
+// }
+// console.log(kir)
+console.log(agdbxb)
