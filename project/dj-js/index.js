@@ -62,11 +62,62 @@ console.log(otherbox)
 //     e.target.style.backgroundColor="white"
 // })
 
-var a = document.getElementById("a")
-a.addEventListener('click',function(e){
-   if( e.target.style.backgroundColor==="black"){
-       e.target.style.backgroundColor="red"
-   }else{
-       e.target.style.backgroundColor="black"
-   }
+// var a = document.getElementById("a")
+// a.addEventListener('click',function(e){
+//    if( e.target.style.backgroundColor==="black"){
+//        e.target.style.backgroundColor="red"
+//    }else{
+//        e.target.style.backgroundColor="black"
+//    }
+// })
+
+
+
+// var a = document.getElementById("a")
+// a.addEventListener('click',function(e){
+//    if(e.target.style.backgroundColor==="black"){
+//        e.target.style.backgroundColor="red"
+//    }else{
+//        e.target.style.backgroundColor="black"
+//    }
+// })
+
+
+
+
+
+
+// var b =document.getElementById("a")
+// b.addEventListener("click",function(e){
+//    if( e.target.style.backgroundColor==="black"){
+//        e.target.style.backgroundColor="yellow"
+//    }else{
+//        e.target.style.backgroundColor="black"
+//    }
+
+// })
+
+
+// var b = document.getElementById("a")
+// b.addEventListener('click',function(e){
+//     if(e.target.style.backgroundColor==="black"){
+//         e.target.style.backgroundColor="yellow"
+//     }else{
+//         e.target.style.backgroundColor="black"
+//     }
+// })     
+
+
+var v = document.getElementById("a")
+v.addEventListener("dblclick",function(e){
+     e.target.style.backgroundColor="black"
 })
+
+
+var x =document.getElementById("hi")
+x.addEventListener("click",function(e){
+    e.target.style.backgroundColor="red"
+})
+
+var c =document.createElement("h1")
+

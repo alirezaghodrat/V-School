@@ -17,3 +17,10 @@
       var num2= Number(userForm.add2.value)
       console.log(num1+num2)
   })
+
+  var a = document.user
+
+  a.addEventListener("submit",function(e){
+      e.preventDefault()
+  })
+  var num1=Number(user)
