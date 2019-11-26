@@ -15,5 +15,10 @@
 // h1.textContent = "JavaScript made this!!";
 // document.getElementById("header").appendChild(h1);
 // h1.className = "header";
-
-
+function isEmpty(s) {
+    if(isEmpty("")){
+        console.log("true")
+    } else {
+        console.log("false")
+    }
+    }

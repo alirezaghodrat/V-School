@@ -1,0 +1,54 @@
+body{
+  display: grid;
+  grid-template-columns: 2fr;
+  grid-template-rows: 1fr 1fr 2fr 1fr 1fr;
+}
+
+
+header{
+    background-color: #222;
+    color: blanchedalmond;
+}
+
+nav{
+   background-color: darkgray;
+}
+
+main{
+     background-color: black;
+     color: blanchedalmond;
+}
+div{
+    background-color: darkgray;
+}
+footer{
+    background-color: #222;
+    color: blanchedalmond;
+}
+
+@media only screen and (min-width400px){
+    header{
+        background-color: #222;
+        color: blanchedalmond;
+    }
+    
+    nav{
+       background-color: darkgray;
+       grid-column: 1/2;
+       grid-row: 2/3;
+    }
+    
+    main{
+         background-color: black;
+         color: blanchedalmond;
+         grid-column:2/3 ;
+         grid-row: 2/3;
+    }
+    div{
+        background-color: darkgray;
+    }
+    footer{
+        background-color: #222;
+        color: blanchedalmond;
+    }
+}
