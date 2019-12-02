@@ -247,4 +247,19 @@
 //     result.push(kir[i])
 // }
 // console.log(kir)
-console.log(agdbxb)
+// console.log(agdbxb)
+
+// var string =[1,2,3,4]
+
+// function hamid(string){
+//      if(string.length[i]<=20){
+//          return"string+string"
+//      }else (string.length[i]>20) 
+//           return"string/2"
+//      }
+// console.log(hamid)
+
+
+
+
+console.log(6666666)

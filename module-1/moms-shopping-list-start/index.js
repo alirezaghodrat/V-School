@@ -13,29 +13,31 @@
 //     d.appendChild(c)
 // })
 
-const shoppingList =document.getElementById("list")
-const addItemForm=document.addItem
-
 
 ///////////////////////////////////////////////////////////////////////////part"1"
 
+const shoppingList =document.getElementById("list")
+const addItemForm=document.addItem
+
 addItemForm.addEventListener("submit",function(e){
       e.preventDefault()
-
-const b =addItemForm.title.value
-const a = document.createElement("li")
-a.textContent=b
-shoppingList.appendChild(a)
-const c = document.createElement("button")
-c.textContent="X"
-a.appendChild(c)
-c.classList.add("x-button")
-const d = document.createElement("button")
-d.textContent="edit"
-a.appendChild(d)
 const input=document.getElementById("title")
+const newListItem= document.createElement("li")
+newListItem.classList.add("list-item")
+const itemName = document.createElement("div")
+itemName.textContent=input.value
+const deletBtn = document.createElement("button")
+deletBtn.textContent="X"
+deletBtn.classList.add("x-button")
+const editBtn = document.createElement("button")
+editBtn.textContent="edit"
+editBtn.classList.add("edit-button")
+newListItem.appendChild(itemName)
+newListItem.appendChild(editBtn)
+newListItem.appendChild(deletBtn)
+shoppingList.appendChild(newListItem)
 input.value=""
-c.addEventListener("click",function(e){
+deletBtn.addEventListener("click",function(e){
     e.target.parentNode.remove()
 })
 })
@@ -43,10 +45,13 @@ c.addEventListener("click",function(e){
 ////////////////////////////////////////////////////////////////////////////part"2
 
 
-const f = document.getElementsByClassName("list-item")
-for(let i=0;i<list-item.length;i++){
-    const xButons =document.getElementsByClassName("x-button")
+const listItem = document.getElementsByClassName("list-item")
+const xButons = document.getElementsByClassName("x-button")
+console.log(xButons, 999)
+
+for(let i=0;i<listItem.length;i++){
+
     xButons[i].addEventListener("click",function(e){
-        e.target.parentNode.remove()
+            e.target.parentNode.remove()
     })
 }

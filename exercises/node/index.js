@@ -17,9 +17,9 @@ console.log('hello,im skynet')
 const readline = require("readline-sync")
 var username =readline.question("whats your name ? ")
 console.log("hi "+username)
-var userfirstnum =Number(readline.question("whats your first num ?"))
+var userfirstnum =Number(readline.question("whats your first number ?"))
 console.log("cool "+userfirstnum+" and")
-var usersecondnum =Number(readline.question("whats your second num ?"))
+var usersecondnum =Number(readline.question("whats your second number ?"))
 console.log("cool "+usersecondnum+" and")
 var calculate =["multiplies","divides","subtracts" ,"add"]
 var calculater =readline.keyInSelect(calculate,"and you want?")
@@ -38,26 +38,4 @@ var calculater =readline.keyInSelect(calculate,"and you want?")
 console.log("so",final)
 
 //////////////////////////////////////////
-// console.log("welcome")
-// const readline = require("readline-sync")
-// var username=readline.question("whats your name? ")
-// console.log("hi "+username)
-// var first=Number(readline.question("whats your first num? "))
-// console.log("cool "+first+"  and")
-// var second=Number(readline.question("whats your second num? "))
-// console.log("yes "+second+" and")
-// var calculate =["multiplies","divides","subtracts" ,"add"]
-// var calculater=readline.keyInSelect(calculate," what do you want to do ?")
 
-
-// if(calculate[calculater] === "multiplies"){
-//    var final = first*second
-// }else if(calculate[calculater]==="divides"){
-//     var final = first/second
-// }else if(calculate[calculater]==="subtracts"){
-//     var final= first-second
-// }else{
-//     var final=first+second
-// }
-
-// console.log(final)
