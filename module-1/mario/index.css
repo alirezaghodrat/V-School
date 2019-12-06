@@ -1,3 +1,8 @@
+html{
+    height: 1000px;
+}
+
+
 h1{
    text-align: center;
 }
@@ -6,4 +11,34 @@ h1{
 }
 body{
     background-color: gold;
+}
+.h3{
+    color: black;
+   
+
+}
+.img1{
+    position: relative;
+    left: 450px;
+}
+.img2{
+    position: relative;
+    left: 5px;
+    top: 35px;
+}
+.img3{
+    position: relative;
+    left: 5px;
+    top: 35px;
+}
+.img4{
+    position: relative;
+    left: 5px;
+    top: 35px;
+}
+
+#total{
+    position: relative;
+    top:-100px;
+    left: 250px;
 }

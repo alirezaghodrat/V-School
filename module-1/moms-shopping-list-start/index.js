@@ -23,20 +23,23 @@ addItemForm.addEventListener("submit",function(e){
       e.preventDefault()
 const input=document.getElementById("title")
 const newListItem= document.createElement("li")
-newListItem.classList.add("list-item")
 const itemName = document.createElement("div")
-itemName.textContent=input.value
 const deletBtn = document.createElement("button")
-deletBtn.textContent="X"
-deletBtn.classList.add("x-button")
 const editBtn = document.createElement("button")
+
+itemName.textContent=input.value
 editBtn.textContent="edit"
+deletBtn.textContent="X"
+
+deletBtn.classList.add("x-button")
+newListItem.classList.add("list-item")
 editBtn.classList.add("edit-button")
+
 newListItem.appendChild(itemName)
 newListItem.appendChild(editBtn)
 newListItem.appendChild(deletBtn)
 shoppingList.appendChild(newListItem)
-input.value=""
+// input.value=""
 deletBtn.addEventListener("click",function(e){
     e.target.parentNode.remove()
 })

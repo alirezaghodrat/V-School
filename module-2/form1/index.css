@@ -1,0 +1,21 @@
+body{
+background-color: blueviolet;
+}
+
+
+form{
+    margin: 15px;
+    position: relative;
+    
+}
+
+
+#input{
+    position: absolute;
+  background-color: cornflowerblue;
+  border: 5px black;
+
+}
+#button{
+    background-color: cadetblue;
+}

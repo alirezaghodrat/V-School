@@ -30,14 +30,7 @@ div{
     width: 700px;
   }
 
-  /* .pp{
-      display: flex;
-      flex-direction: row;
-      justify-content:flex-end;
-  }
-  .cc{
-      text-align: center;
-  } */
+  
 
   .mainDiv{
       display: grid;
@@ -109,4 +102,111 @@ div{
     grid-row: 5/6; 
     height: 10%;
     width: 50%
+ }
+  
+ @media (max-width: 400px){
+
+    header {
+        text-align: center;
+        font-size: 90px;
+        background-color: red;
+    }
+    .ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    
+    }
+    div{
+        border: 5px black;
+        height: 10px;
+        width: 10px;
+    }
+    .main-img {
+        border-radius: 50%;
+        display: block;
+        margin-left:10px;
+        margin-right: 10px;
+        height: 50px;
+        width: 50px;
+      }
+
+
+    .mainDiv{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
+        height: 100%;
+        width: 100%;
+    }
+    .hot-coffee{
+        grid-column:1/2; 
+        grid-row: 1/2;
+        /* background-color; */
+        height: 10%;
+         width: 50%
+     }
+     .hot-tea{
+       grid-column:2/3; 
+       grid-row: 1/2;
+       /* background-color: red; */
+       height: 10%;
+       width: 50%
+    }
+    .fog-tea{
+       grid-column:3/4; 
+       grid-row: 1/2;
+       /* background-color: red; */
+       height: 10%;
+       width: 50%
+    }
+   
+    .black-tea{
+       grid-column:1/2; 
+       grid-row: 2/3;
+       /* background-color: red; */
+       height: 10%;
+       width: 50%
+    }
+    
+    .rev-up{
+       grid-column:2/3; 
+       grid-row: 2/3;
+       /* background-color: red; */
+       height: 10%;
+       width: 50%
+    }
+    .green-tea{
+       grid-column:1/2; 
+       grid-row: 3/4;
+       /* background-color: red; */
+       height: 10%;
+         width: 50%
+    }
+    .green-tea-latte{
+       grid-column:2/3; 
+       grid-row: 3/4;
+       /* background-color: red; */
+       height: 10%;
+       width: 50%
+    }
+    .brewed-tea{
+       grid-column:3/4; 
+       grid-row: 3/4;
+       /* background-color: red; */
+       height: 10%;
+         width: 50%
+    }
+    .comfort{
+       grid-column:3/4;
+       grid-row: 2/3; 
+       height: 10%;
+       width: 50%
+    }
+
+
+
+
+
+
  }

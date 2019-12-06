@@ -1,0 +1,106 @@
+/* .box {
+    height: 200px;
+    width: 200px;
+    background-color: blue;
+}
+
+/* Make the box 400px by 400px when the screen is wider than 1000px */
+/* @media only screen and (min-width: 1000px){
+   .box{ 
+        height: 400px;
+        width: 400px;
+   }
+} */
+/* Make the box 100px by 100px when the screen is smaller than 500px */
+/* @media only screen and (max-width: 500px){
+        .box{
+            height: 100px;
+            width: 100px; */
+/* }
+/* } */
+/* Make the box orange when the screen is between 500px and 1000px wide */
+/* @media only screen and(min-width: 1000px ){
+        .box{ 
+         height: 200px;
+        width: 200px;
+        background-color:orange;
+        height: 200px;
+        width: 200px;
+   }
+}
+@media only screen and(max-width: 500px ){
+        .box{ 
+        height: 200px;
+        width: 200px;
+        background-color:orange;
+        height: 200px;
+        width: 200px;
+   }
+} */
+/* @media only screen and (min-width: 1000px), (max-width: 500px){
+
+
+    .box{ 
+        background-color:yellow;
+        
+   }
+
+
+
+} */
+/* Make the box yellow when the screen is either smaller than 500px or larger 1000px  */
+/* @media only screen and(min-width: 1000px){
+        .box{ 
+        height: 200px;
+        width: 200px;
+        background-color:yellow;
+        height: 200px;
+        width: 200px;
+   }
+} */
+
+
+/* display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: chartreuse;
+    border: 3px solid black;
+    width: 400px */
+
+/* } */
+
+/* .p{
+    
+    height: 30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: chartreuse;
+    margin-top:250px ;
+    
+
+    
+
+
+
+ 
+.box {
+  width: 100px;
+  height: 100px;
+  background: red;
+  color: white;
+}
+
+#one {
+  position: fixed;
+  top: 80px;
+  left: 10px;
+  background: blue;
+}
+
+.outer {
+  width: 500px;
+  height: 300px;
+  overflow: scroll;
+  padding-left: 150px;
+}

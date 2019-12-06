@@ -1,0 +1,38 @@
+body{
+    background-color: yellow;
+    padding: 0px;
+    margin: 0;
+    position: relative;
+    top: 0px
+}
+
+header{
+    background-color: turquoise;
+    position: relative;
+    top: 0px;
+    left: 0;
+}
+
+nav{
+    background-color: turquoise;
+    position: absolut;
+    margin: 0px;
+}
+
+footer{
+    background-color: turquoise;
+    position: relative
+}
+
+
+.box1{
+     border: 2px solid black;
+     position: relative;
+     top: 0px;
+}
+
+.box2{
+    border: 2px solid black;
+    position: relative;
+    
+}
