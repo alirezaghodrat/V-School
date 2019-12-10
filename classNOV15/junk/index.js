@@ -272,3 +272,54 @@
 // var mazda = new Car("Mazda", "3 hatchback", 2015)
  
 // console.log(jeep.model)
+
+
+    // localStorage.setItem("name","steve")
+    // localStorage.setItem("age",10)
+    // localStorage.setItem("isAlive",true)
+    // localStorage.setItem("friends",JSON.stringify(["matik","tina"]))
+    // localStorage.setItem("addres",JSON.stringify({street:"2231 street ",city:"slc" ,country:"usa"}))
+
+
+
+    // const name = localStorage.getItem("name")
+    // const age = localStorage.getItem("age")
+    // const isAlive=localStorage.getItem("isAlive")
+    // const friends=JSON.parse(localStorage.getItem("friends"))
+    // const address=JSON.parse(localStorage.getItem("address"))
+
+    // localStorage.removeItem("age")
+
+///////////////////higher order function
+function doMath(num1, num2, callback){
+    return callback(num1, num2)
+}
+function sum(num1, num2){
+    return num1 + num2
+}
+////////////////////////map()
+const users = [{name:"javad"},{name:"jadid"},{name:"man"},{name:"bob"}]
+const number=[4,6,7,1,0,88,64,33,2,7]
+const newarr =users.map(kir=>kir+10)
+////////////////////////////////filter()
+const newfilter = users.filter(num=>(num%2===0))
+////////////////////////////////////////////////forEach()
+const newArr =[]
+users.forEach(num=>(num%2===0)&&newArr.push(num))
+const result =users.find(keke=>(keke.name[0]==="j"))
+//////////////////////////////////////////////////////findIndex()
+const result1 =users.findIndex(keke=>(keke.name==="bob"))
+/////////////////////////////////////////////////////////////some()
+const result2 =users.some(keke=>(keke.name[0]==="m"))
+////////////////////////////////////////////////////////////every()
+const result3 =users.every(keke=>(keke.name[0]==="m"))
+////////////////////////////////////////////////////////////sort()
+const result4 = number.sort((a,b)=>a-b)
+////////////////////////////////////////////////////////////reduce()
+const result5 =number.reduce((final,num)=> final+=num,2)
+//////
+
+console.log(result5)
+
+
+
