@@ -62,3 +62,8 @@ const result = ageCompair.sort(function(c,d){
     }
 })
 // console.log(result)
+
+
+
+
+

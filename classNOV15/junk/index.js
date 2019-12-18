@@ -319,7 +319,16 @@ const result4 = number.sort((a,b)=>a-b)
 const result5 =number.reduce((final,num)=> final+=num,2)
 //////
 
-console.log(result5)
+let coin = 0
+function addCoin (){
+    return coin ++
+}
+
+
+function aa (){
+    setInterval(addCoin(),1000)
+}
+console.log(aa())
 
 
 

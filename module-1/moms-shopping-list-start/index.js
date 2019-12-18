@@ -39,10 +39,10 @@ newListItem.appendChild(itemName)
 newListItem.appendChild(editBtn)
 newListItem.appendChild(deletBtn)
 shoppingList.appendChild(newListItem)
-// input.value=""
+input.value=""
 deletBtn.addEventListener("click",function(e){
     e.target.parentNode.remove()
-})
+}) 
 })
 
 ////////////////////////////////////////////////////////////////////////////part"2
@@ -51,7 +51,6 @@ deletBtn.addEventListener("click",function(e){
 const listItem = document.getElementsByClassName("list-item")
 const xButons = document.getElementsByClassName("x-button")
 console.log(xButons, 999)
-
 for(let i=0;i<listItem.length;i++){
 
     xButons[i].addEventListener("click",function(e){

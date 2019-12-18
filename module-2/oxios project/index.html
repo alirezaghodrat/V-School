@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="index.css" rel="stylesheet"/>
+</head>
+<body>
+    <button class="todo" id="button">ToDo List</button>
+    <h2>ToDo List</h2>
+    <form name="form">
+        <input name="title" class="input" type="text" placeholder="title" required/>
+        <input name="price" class="input" type="text" placeholder="price" required/>
+        <input name="description" class="input" type="text" placeholder="description" required/>
+        <input name="img" class="input" type="text" placeholder="img Url" required/>
+        <button class="add">add</button>
+
+    </form >
+    <div class="div">
+ 
+        <ul id="incompleted-list">
+                Mapped list that are not completed
+
+            <li class="list-item" >
+                <div class="div1">here is sample (Incomplete) </div>
+                <button id="edit">edit</button>
+                <button class="x-button">delete</button>
+                <select id="select1">
+                        <option id="option1" value="complete">complete</option>
+                        <option id="option2" value="incomplete">incomplete</option>
+                </select> 
+            </li>
+            
+        </ul>
+
+    </div>
+    <div class="div2" id="completed-list">complete List:
+        Mapped li's that are completed
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
