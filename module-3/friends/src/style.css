@@ -1,0 +1,24 @@
+body{
+    background-color: yellow;
+}
+.img{
+    width: 300px;
+    height: 300px;
+}
+.main-container{
+    position: relative;
+
+}
+.frinds{
+    padding-top: 60px;
+    position: relative;
+    left: 450px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+.second{
+    position: relative;
+    left: 450px;
+    padding-top: 60px;
+}

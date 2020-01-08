@@ -1,0 +1,1 @@
+const headerComponent = props.item.map(head => <Navbar key={head.id} head={head}/>)

@@ -36,6 +36,10 @@ var peopleArray = [
     },
 ]
 
+
+// peopleArray.forEach(ages=>console.log(`hi my name is ${ages.firstName} and im ${ages.age} years old`))
+
+
 //1)Returns a list of everyone older than 18, which is
 
 // const age = peopleArray.filter(function(some){
