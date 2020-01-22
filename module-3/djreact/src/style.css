@@ -1,0 +1,55 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr 1fr ;
+    grid-gap: 1px;
+    height: 350px;
+    width: 350px;
+    position: relative;
+    left: 500px;
+    top:200px;
+    border: 1px solid black
+}
+
+.smallDj{
+    height: 30px;
+    width: 70px;
+    position: relative;
+    top:250px;
+    left:500px
+}
+.party{
+    height: 30px;
+    width: 70px;
+    position: relative;
+    top:255px;
+    left:520px;
+    background-color: purple;
+}
+.blueleft{
+    height: 30px;
+    width: 70px;
+    position: relative;
+    top:255px;
+    left:550px;
+    background-color: blue;
+}
+
+.bluewrite{
+    height: 30px;
+    width: 70px;
+    position: relative;
+    top:255px;
+    left:550px;
+    background-color: blue;
+}
+
+
+.bigtime3{
+    height: 30px;
+    width: 70px;
+    position: relative;
+    top:255px;
+    left:550px;
+    background-color:green
+}

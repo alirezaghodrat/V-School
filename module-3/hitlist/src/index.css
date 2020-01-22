@@ -1,0 +1,11 @@
+.img{
+    height: 300px;
+    width: 300px;
+    position: relative;
+    left: 100px;
+}
+.cotain{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}

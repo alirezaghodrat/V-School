@@ -1,0 +1,8 @@
+.div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top:400px;
+    flex-direction: column;
+}
