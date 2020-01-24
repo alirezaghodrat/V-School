@@ -1,0 +1,31 @@
+body{
+    margin: 0;
+}
+
+#root{
+    background-color:aqua;
+    min-height: 100vh;
+}
+
+.dark-theme {
+    background-color: #333333;
+    color: whitesmoke;
+}
+
+.light-theme {
+    background-color: whitesmoke;
+    color: #333333;
+}
+.red-theme {
+    background-color: red;
+    color: blue;
+}
+.main-theme {
+    background-color: yellow;
+    color: blue;
+}
+
+.nav-theme{
+    background-color: blue;
+    color: blue;
+}
