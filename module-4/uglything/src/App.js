@@ -20,14 +20,6 @@ class App extends Component{
     }
 
 
-    // edite=(title, updates)=>{
-    //     this.setState(prevState=>{
-    //         return{
-    //             arr: prevState.arr.map(item => title !== item.title ? item : updates)
-    //         }
-    //     })
-    // }
-
     render (){
 
         // const mappedprofiles = this.state.arr.map(pro =>(<Thing {...pro} edite={this.edite} delete={this.delete}/>))
