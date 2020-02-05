@@ -4,56 +4,54 @@ const uuid = require('uuid/v4')
    
      app.use(express.json())
 
-const starwar=[
-    { name:"yoda", Living:true , BountyAmount:33 , Type:"Sith" , _id:"123" },
-    { name:"boba", Living:false , BountyAmount:22 , Type:"jedi" , _id:"1234" },
-    { name:"yoda", Living:true , BountyAmount:11 , Type:"Sith" , _id:"12345" }
+const students=[
+    { name:"yoda", graduate:true , _id:"123" },
+    { name:"bob", graduate:false  , _id:"1234" },
+    { name:"ali", graduate:true  , _id:"12345" }
 ]
 
-//get all//
-app.get("/bounty",(req,res)=>{
-    res.send(starwar)
+//get all//ok
+app.get("/student",(req,res)=>{
+    res.send(students)
 })
 
-//get one //
-app.get("/:bountyId" , (req,res)=>{
-    const bountyId=req.params.bountyId
-       console.log(bountyId)
-    const getone = starwar.find( item => {
-        console.log(item._id,bountyId )
-        return item._id === bountyId 
+//get one //ok
+app.get("/student/:studentId" , (req,res)=>{
+    const studentId=req.params.studentId
+    const getone = students.find( item => {
+        return item._id === studentId 
     })        
     res.send(getone)
 })
 
 
-//post//
-app.post("/",(req,res)=>{
+//post//ok
+app.post("/student",(req,res)=>{
     const newStar = req.body
     newStar._id=uuid()
-    starwar.push(newStar)
-    res.send(`successfully added ${newStar.name} `)
+    students.push(newStar)
+    res.send(newStar)
 })
 
-//delete//
-app.delete("/:bountyId" , (req,res)=>{
+//delete//ok
+app.delete("/student/:bountyId" , (req,res)=>{
    const bountyId = req.params.bountyId
-   const starIndex = starwar.findIndex( item => item._id === bountyId )
-   starwar.splice(starIndex,1)
+   const starIndex = students.findIndex( item => item._id === bountyId )
+   students.splice(starIndex,1)
    res.send(`remove successfully`)
 })
 
-//put//
-app.put("/:bountyId" ,(req,res)=>{
+
+//put//ok
+app.put("/student/:bountyId" ,(req,res)=>{
     const bountyId = req.params.bountyId
     const updateObject = req.body
-    const findIndexstar = starwar.findIndex( item => item._id === bountyId )
-    const update = object.assign(starwar[findIndexstar],updateObject)
-    res.send(`success update ${update} `)
+    const findIndexstar = students.findIndex( item => item._id === bountyId )
+    const update = Object.assign(students[findIndexstar],updateObject)
+    res.send(update)
 })
 
-
-//listen//
-app.listen('9001',()=>{
-    console.log('the server is running on the 9001 port')
+//listen//ok
+app.listen('9002',()=>{
+    console.log('the server is running on the 9002 port')
 })
