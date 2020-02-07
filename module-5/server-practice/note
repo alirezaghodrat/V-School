@@ -1,0 +1,33 @@
+# intro to E xpress
+web: https://expressjs.com/
+
+ 1- npm init -y
+
+ 2- changeb the file main in packege.json to "main":server.json
+
+ 3-npm install express   (there is a lot of cool code here)
+
+ 4-now we can create our server file here 
+
+ for bigining => 
+
+ const express = require("express")
+ const app = express()
+    
+
+    app.get("/",(req,res)=>{
+        console.log("hello world")
+    })
+    
+     app.listen(9000,()=>{
+         console.log("the server is runing in 9000 port)
+     })
+
+
+     we can see in regular page with type -----localhost:9000
+
+
+
+ 5- nodemon  thats for any time i typing my server restarting  
+
+   for install in terminal we typing :    npm install -g nodemon and in starting any time we should type in terminal ---- nodemon server.js
