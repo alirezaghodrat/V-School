@@ -28,13 +28,22 @@ export default  function App(){
            })
            .catch(err => console.log(err))
     }
+
+    function editMovi(updates,movieId){
+        axios.put(`/movies/${movieId}`,updates)
+        .then(res => {
+            setMovies(pre => pre.map(movie => movie._id !== movieId ? movie : res.data))
+        })
+        .catch(err => console.log(err))
+    }
     useEffect(()=>{
         getMovies()   
     },[])
     return(
         <div className="movie-container">
                   <AddMovieForm  
-                  addMovie={addMovie}
+                  submit={addMovie}
+                  btnText="add Movie"
                   />
                  {movies.map(movie => 
                  <Movie {...movie} 

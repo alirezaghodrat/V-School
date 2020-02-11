@@ -10,7 +10,7 @@ export default function AddMovieForm(props){
     }
      function handelSubmit(e){
          e.preventDefault()
-         props.submit(inputs)
+         props.submit(inputs,props._id)
           setInputs(initInputs)
      }
     return(
