@@ -24,6 +24,8 @@ movieRouter.get("/:movieId",(req,res)=>{
     })
 })
 
+
+
 //get by genre//
 movieRouter.get("/search/genre",(req,res,next) => {
     Movie.find({ genre: req.query.genre },(err,movies) => {
@@ -34,6 +36,7 @@ movieRouter.get("/search/genre",(req,res,next) => {
         return res.status(200).send(movies)
     })
 })
+
 
 //post one//
 movieRouter.post("/",(req,res , next)=>{ 
@@ -57,6 +60,7 @@ movieRouter.delete("/:movieId",(req,res ,next) =>{
      return res.status(200).send(`Successfully deleted item ${deletedItem.title} from the database`)
  })
 })
+
 
 //update one //
 movieRouter.put("/:movieId",(req,res,next)=>{
