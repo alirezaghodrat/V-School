@@ -10,7 +10,8 @@ body{
         align-items: center;
     }
     .progect{
-        height: 100%;
+        height: 200px;
+        
     }
     .imgheader{
    
@@ -153,15 +154,11 @@ body{
 @media only screen and (min-width: 400px){
     .progect-holder{
         display: flex;
-        
-        /* flex-direction: column;  */
-        /* top:200px;
-        position: relative; */
-        /* justify-content: space-around; */
         align-items: center; 
     }
     .progect{
-        height: 100px;
+        height: 300px;
+        /* width: 100%; */
     }
 .imgheader{
    
