@@ -23,7 +23,7 @@ personRouter.post("/",(req,res)=>{
     const newPerson = req.body
     newPerson._id=uuid()
     person.push(newPerson)
-    res.send(`succtess send ${newPerson.name}`)
+    res.send(newPerson)
 })
 
 //get by qurey
