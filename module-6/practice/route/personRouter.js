@@ -1,51 +1,74 @@
 const express = require('express')
 const personRouter = express.Router()
-const uuid = require("uuid/v4")
+const Person = require("../models/person.js")
 
-const person =[
-    { name:"shayan" , age: 20 ,_id:uuid()} ,
-    { name:"shawn" , age: 20 ,_id:uuid()} 
-]
 //get all
-personRouter.get("/",(req,res)=>{
-    res.send(person)
+personRouter.get("/",(req,res,next)=>{
+     Person.find((err,person)=>{
+         if(err){
+             res.status(500)
+             return next(err)
+         }
+         return res.status(200).send(person)
+     })
 })
 
 //get one 
-personRouter.get("/:personId",(req,res)=>{
-    const personId = req.params.personId
-    const find = person.find(item => item._id === personId )
-    res.send(find)
+personRouter.get("/:personId",(req,res,next)=>{
+    Person.findone({_id:req.params.personId},(err,person)=>{
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(person)
+    })
 })
 
 //post one 
-personRouter.post("/",(req,res)=>{
-    const newPerson = req.body
-    newPerson._id=uuid()
-    person.push(newPerson)
-    res.send(newPerson)
+personRouter.post("/",(req,res,next)=>{
+   const newPerson = new Person(req.body)
+   newPerson.save((err,savedPerson) =>{
+       if(err){
+           res.status(500)
+           return next(err)
+       }
+       return res.status(201).send(savedPerson)
+   })
 })
 
 //get by qurey
-personRouter.get("/search/name",(req,res)=>{
-  const name = req.query.name
-  const hereisname = person.filter(item => item.name === name )
-  res.send(hereisname)
+personRouter.get("/search/age",(req,res)=>{
+  Person.find({age:req.query.age},(err,person)=>{
+      if(err){
+          res.status(500)
+          return next(err)
+      }
+      return res.status(200).send(person)
+  })
 })
 
 //delete
-personRouter.delete("/:personId",(req,res)=>{
-    const personId = req.params.personId
-    const findindex = person.findIndex(item => item._id === personId)
-    person.splice(findindex,1)
-    res.send(`we remove the name!`)
+personRouter.delete("/:personId",(req,res,next)=>{
+  Person.findOneAndDelete({_id:req.params.personId},(err,deleteItem)=>{
+      if(err){
+          res.status(500)
+          return next(err)
+      }
+      return res.status(200).send(`delete success ${deleteItem.name}from the DB`)
+  })
 })
 //put
-personRouter.put("/:personId",(req,res)=>{
-    const personId = req.params.personId
-    const updated = req.body
-    const findeindex = person.findIndex(item => item._id === personId)
-    const final = Object.assign(person[findeindex],updated)
-    res.send(final)
+personRouter.put("/:personId",(req,res,next)=>{
+   Person.findOneAndUpdate(
+       {_id:req.params.personId},
+       req.body,
+       {new:true},
+       (err,updatedPerson)=>{
+           if(err){
+               res.status(500)
+               return next(err)
+           }
+           return res.status(201).send(updatedPerson)
+           })
 })
 module.exports=personRouter

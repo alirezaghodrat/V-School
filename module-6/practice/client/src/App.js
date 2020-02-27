@@ -37,7 +37,16 @@ export default function App(){
           .catch(err => console.log(err))
      }
 
-
+     function handleFilter(e){
+         if(e.target.value==="select"){
+            getMovie()
+         }else{
+         Axios.get(`/person/search/age?age=${e.target.value}`)
+         .then(res => setMovie(res.data))
+         .catch(err => console.log(err))
+     }
+     }
+    
     useEffect(()=>{
         getMovie()
     },[])
@@ -47,6 +56,14 @@ export default function App(){
             <AddMovieForm 
             submit={addMovie}
             btnText="add movie"/>
+            
+            <h4>filter by age</h4>
+            <select onChange={handleFilter}>
+                <option value="select">select age</option>
+                <option value="6">6</option>
+                <option value="9">9</option>
+            </select>
+
             { movie.map(item => 
             <Person 
             {...item} 
