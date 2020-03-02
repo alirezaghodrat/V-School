@@ -13,5 +13,4 @@ const personSchema = new Schema({
 
 })
 
-rr
 module.exports = mongoose.model( "person", personSchema )
