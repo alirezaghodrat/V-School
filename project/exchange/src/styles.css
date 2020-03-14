@@ -17,7 +17,19 @@ body{
         border-radius: 10px;
         margin: 10px;
      }
-
+     .total{
+        height: 250px;
+        width: 300px;
+        background-color: rgb(255, 255, 255);
+        position: relative;
+        top: 0px;
+        border-radius: 90px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+     }
      .main-div{
         color:white; 
         display:flex;
@@ -80,30 +92,30 @@ body{
 }
 .div1{
     height: 250px;
-    width: 400px;
+    width: 300px;
     background-color:rgb(255, 255, 255);
     position: relative;
     top:100px;
-    border-radius: 50%;
+    border-radius: 90px;
     padding: 20px;
 }
 .div2{
     height: 250px;
-    width: 400px;
+    width: 300px;
     background-color:rgb(255, 255, 255);
     position: relative;
     top:100px;
-    border-radius: 50%;
+    border-radius: 90px;
     padding: 20px;
 
 }
 .div3{
     height: 250px;
-    width: 400px;
+    width: 300px;
     background-color: rgb(255, 255, 255);
     position: relative;
     top:100px;
-    border-radius: 50%;
+    border-radius: 90px;
     padding: 20px;
     bottom: 20px;
 
