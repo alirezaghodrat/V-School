@@ -1,6 +1,7 @@
 
 const express = require("express")
 const movieRouter = express.Router()
+const uuid = require("uuid/v4")
 
 const movie =[
     {name:"jamshid",genre:"action" , _id:uuid()},
@@ -9,12 +10,12 @@ const movie =[
 ]
 
 //get all
-app.get("/user",(req,res)=>{
+movieRouter.get("/user",(req,res)=>{
     res.send(movie)
 })
 
 //post one
-app.post("/user",(req,res)=>{
+movieRouter.post("/user",(req,res)=>{
     const newMovie = req.body
     newMovie._id=uuid()
     movie.push(newMovie)
