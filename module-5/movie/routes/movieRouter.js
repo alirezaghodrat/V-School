@@ -14,6 +14,8 @@ movieRouter.get("/user",(req,res)=>{
     res.send(movie)
 })
 
+//get one 
+moviem
 //post one
 movieRouter.post("/user",(req,res)=>{
     const newMovie = req.body
