@@ -1,6 +1,7 @@
 import React,{useState ,useEffect} from "react"
 import axios from "axios"
-import Movie from "./component/Movie"
+import Movie from "./component/Movie.js"
+import addMovieForm from "./component/addMovieForm.js"
 
 export default function App (){
    const [movies,setMovie]=useState([])
@@ -18,6 +19,7 @@ export default function App (){
 
     return(
         <div>
+            <addMovieForm />
              {movies.map(item => <Movie {...item} key={item._id}/>)}
         </div>
     )

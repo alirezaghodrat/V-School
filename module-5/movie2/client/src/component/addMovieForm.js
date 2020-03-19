@@ -1,15 +1,21 @@
 import React,{useState} from "react"
 
 export default function addMovieForm(props){
-    const initInput = { "title": "" , "genre": "" }
-    const [input,setInput]=useState(initInput)
-
+    const initInput = { title: "" , genre: "" }
+    const [input,setInput] = useState(initInput)
+ 
     function handleChange(e){
        const {name,value}=e.target
        setInput(prevInput => ({ ...prevInput , [name]:value }))
     }
+
+    function handlesubmit(e){
+      e.preventDefault()
+      //post 
+      setInput(initInput)
+    }
     return(
-        <form>
+        <form onSubmit={handlesubmit}>
             <input 
             type="text"
             name="title"
