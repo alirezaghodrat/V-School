@@ -1,6 +1,6 @@
 import React,{useState} from "react"
 
-export default function addMovieForm(props){
+export default function (props){
     const initInput = { title: "" , genre: "" }
     const [input,setInput] = useState(initInput)
  
@@ -11,7 +11,7 @@ export default function addMovieForm(props){
 
     function handlesubmit(e){
       e.preventDefault()
-      //post 
+   
       setInput(initInput)
     }
     return(

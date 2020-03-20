@@ -2,7 +2,7 @@ const express = require('express')
 const movieRouter = express.Router()
 const uuid = require("uuid/v4")
 movies = [
-    {"title":"god father" , "genre":"dram" ,_id:uuid()},
+    {"title":"g father" , "genre":"dram" ,_id:uuid()},
     {"title":"father" , "genre":"action" ,_id:uuid()},
     {"title":"god " , "genre":"fancy" ,_id:uuid()}
 ]

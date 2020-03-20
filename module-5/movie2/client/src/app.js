@@ -13,6 +13,13 @@ export default function App (){
       )
   }
 
+   function postMovie(){
+       return(
+           axios.post("/movie")
+           .then(res => console.log(res))
+           .catch(err => console.log(err))
+       )
+   }
     useEffect(()=>{
         getMovie()
     },[])
