@@ -1,7 +1,7 @@
 import React,{useState} from "react"
 import { Link , Switch , Route  } from "react-router-dom"
 import Home from "./Home"
-import Contact from "./Contact"
+import Contact from "./skills"
 import Project from "./Project"
 import Footer from "./Footer"
 
@@ -15,7 +15,7 @@ function App (){
     return(
         <div>
             <nav className="nav">
-                   <h1> ALI GODRATI  </h1>
+                   <h1> ALI GODRATIPOUR  </h1>
                  
             </nav>
           
@@ -26,7 +26,7 @@ function App (){
                     <ul >
                         <Link  to="/">home</Link>
                         <Link to="/projects">Projects</Link>
-                        <Link to="/Contact">Contact</Link>
+                        <Link to="/Contact">skills</Link>
                     </ul>
                 </div>
              :

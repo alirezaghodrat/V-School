@@ -17,7 +17,7 @@ function Header(){
            <div className="img-holder"> 
                 <img className="box" height="100px" src={family}/>
                 <div className="p-container">
-                    <p className="p">I have a amazing familly</p>
+                    <p className="p">I have an amazing familly</p>
                 </div>
             </div>
             <div className="img-holder"> 
