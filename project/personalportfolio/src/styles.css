@@ -3,7 +3,7 @@ body{
     margin: 0;
    
 }
-@media only screen and (max-width: 400px){
+@media only screen and (max-width: 320px){
     .h1-home{
         line-height: 1.3;
         font-size: 20px;
@@ -11,14 +11,29 @@ body{
         animation: headline;
         text-align: center;
     }
+    .p2{
+        font-size: 10px;
+    }
     .progect-holder{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        position: relative;
+        left: 10px;
+        top: 20px;
     }
-
+    .skills-name{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top:-100px;
+    }
+    .img-holder-skills{
+        display: none;
+    }
     .progect{
-        height: 200px;  
+        height: 100px;  
     }
 
     .imgheader{
@@ -30,8 +45,8 @@ body{
         padding: 0px 20px 20px 20px;
     }
 
-    .h1-contact{
-       display: none;
+    .h1contact{
+       text-align: center;
     }
 
     .nav{
@@ -72,7 +87,10 @@ body{
         flex-direction: column;
         justify-content: space-evenly;
         left: 120px;
-        padding:5px
+        padding:5px;
+        position: relative;
+        left:0px;
+        top:-30px
     }
     .img-holder{
         display: flex;
@@ -137,7 +155,10 @@ body{
         height:100px;
         width:400px
     }
-    
+    /* .img-holder-project{
+        paddding: 0px 65px ;
+    }  */
+
     .menu{
         position: absolute;
         top: 10px;
@@ -157,9 +178,187 @@ body{
         padding: 0 30px;
     } 
 }
+/* ///////////////////////////////////////////////////////////// */
+
+@media only screen and (min-width:321px) and (max-width:768px){
+    .h1-home{
+        line-height: 1.3;
+        font-size: 20px;
+        position: relative;
+        animation: headline;
+        text-align: center;
+    }
+    .p2{
+        font-size: 10px;
+    }
+    .progect-holder{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: 10px;
+        top: 20px;
+    }
+    .skills-name{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top:-100px;
+    }
+    .img-holder-skills{
+        display: none;
+    }
+    .progect{
+        height: 100px;  
+    }
+
+    .imgheader{
+        border-radius: 50%;
+    }
+
+    .imgfooter{
+        height: 50px;
+        padding: 0px 20px 20px 20px;
+    }
+
+    .h1contact{
+       text-align: center;
+    }
+
+    .nav{
+        width: 100%;
+        border: 1px solid black;
+        background-color:orchid;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .nav-links {
+        position: absolute;
+        top: 0px;
+        left: 30px;
+        z-index: 10;
+    }
+    
+    .nav-links ul {
+        display: grid;
+        padding: 20px 10px;
+        background-color: white;
+        text-align: left;
+        width: 80px;
+        border: 1px solid #00000063;
+        margin-top: -3px;
+        margin-left: -20px;
+    }
+    
+    .main{
+        width:100%;
+        height: 85vh;
+        display: flex;
+        justify-content: space-evenly;
+    
+    }
+    .header-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        left: 120px;
+        padding:5px;
+        position: relative;
+        left:0px;
+        top:-30px
+    }
+    .img-holder{
+        display: flex;
+        align-items: center;
+    }
+    .footer{
+        background-color: blueviolet;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border: 1px solid black;
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        left:0px
+    }
+    .box{
+        width:100px;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        color:aliceblue;
+        transition: all 0.9s ease-in-out;
+    
+    }
+    
+    .box:hover{
+           border-radius: 0;
+           color: black;
+       
+    }
+    .p{
+      display: flex; 
+      justify-content: center;
+      align-items: center;
+      color: black;  
+      font-size: 5px;
+    }
+    .p-container{
+        background-color: whitesmoke; opacity: 0.7; 
+        position: absolute;
+        display: none;
+        bottom: 0px; 
+        width: 100px;
+    }
+    .img-holder:hover .p-container{
+        display: block;
+    }
+
+   
+    .dropdownClose{
+        position: relative;
+        left:0px;
+        top:0px;
+    } 
+    
+    .dropdownOpen{
+        position: relative;
+        height:100px;
+        width:400px
+    }
+    /* .img-holder-project{
+        paddding: 0px 65px ;
+    }  */
+
+    .menu{
+        position: absolute;
+        top: 10px;
+    }
+    .contact{
+       display: flex;
+       flex-direction: column;
+       justify-content: space-evenly;
+       align-items: center;
+      margin: 200px;
+    }
+    .myself{
+        display: inline-block;
+        align-items: center;
+        padding-top: 100px;
+        margin: auto;
+        padding: 0 30px;
+    } 
+
+}
 /* //////////////////////////////////////////////////////////// */
 
-@media only screen and (min-width: 400px){
+@media only screen and (min-width: 769px){
     .h1-home{
         line-height: 1.3;
         font-size: 40px;
@@ -175,11 +374,63 @@ body{
     }
     .progect-holder{
         display: flex;
+        /* flex-direction: column; */
+        justify-content: space-evenly;
         align-items: center; 
+        position: relative;
+        top: 20px;
+        opacity: 0;
+        animation-name: pic2;
+        animation-duration: 1s;
+        animation-delay: 2s;
+        animation-fill-mode: forwards;
+    }
+    @keyframes pic2 {
+        0%   { opacity:0}
+        100% { opacity:1}
     }
     .progect{
         height: 300px;
+        width:400px;
+        margin: 10px;
+        border-radius: 50%;
+        transition: all 0.9s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
+    .progect:hover{
+        border-radius: 0;
+        color: black;
+    
+    }
+    .img-holder-project{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .p2{
+        /* display: flex; 
+        justify-content: center;
+        align-items: center; */
+        color: black;  
+        font-size: 15px;
+      }
+      .p-contaner2{
+          background-color: white; opacity: 0.8; 
+          position: absolute;
+          display: none;
+          bottom: 10px; 
+          width: 400px;
+          height: 100px;
+          
+      }
+
+      .progect-holder:hover .p-contaner2{
+        display: block;
+    }
+
     .imgheader{
     
         border-radius: 50%;
@@ -225,13 +476,19 @@ body{
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-    }
-    .img-holder{
-        display: flex;
-        align-items: center;
-        width: 250pt;
         position: relative;
+        top: -100px;
+        opacity: 0;
+        animation-name: picone;
+        animation-duration: 2s;
+        animation-delay: 2s;
+        animation-fill-mode: forwards;
     }
+    @keyframes picone {
+        0%   { opacity:0}
+        100% { opacity:1}
+    }
+
     .footer{
         background-color: blueviolet;
         display: flex;
@@ -247,7 +504,6 @@ body{
         width:200px;
         height: 200px;
         display: flex;
-        flex-direction: row;
         justify-content: center;
         align-items: center;
         border-radius: 50%;
@@ -273,6 +529,12 @@ body{
         display: none;
         bottom: 0px; 
         width: 200px;
+    }
+    .img-holder{
+        display: flex;
+        align-items: center;
+        width: 250pt;
+        position: relative;
     }
     .img-holder:hover .p-container{
         display: block;
@@ -314,16 +576,62 @@ body{
         100% { left: 5px}
     }
     .contact{
-        background-color: #333;
-    }
-    .img-holder{
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+        position: relative;
+        margin-top: 40px;
     }
+
     .imgcontact{
         height: 100px;
         width: 100px;
-        /* padding: 5px; */
+        padding: 20px;
+        opacity: 0;
+        animation-name: pic;
+        animation-duration: 2s;
+        animation-delay: 2s;
+        animation-fill-mode: forwards;
     }
+    @keyframes pic {
+        0%   { opacity:0}
+        100% { opacity:1}
+    }
+
+    .img-holder-skills{
+        position: relative;
+        left: 200px;
+    }
+
+    .h1contact{
+        text-align: center;
+        line-height: 1.3;
+        font-size: 35px;
+        position: relative;
+        animation: head;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+        text-align: center;
+        border-bottom: 5px solid orchid;
+        padding-bottom: 30px;
+    }
+    @keyframes head {
+        0% { top:-50px}
+        100% { top: 20px}
+    }
+    .skills-name{
+        border-right: 5px solid blueviolet;
+        position: relative;
+        padding-right: 30px;
+        animation-name: contentone;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+        font-size: 20px;
+        top: -20px;
+    }
+    @keyframes contentone {
+        0%   { left:-1250px}
+        100% { left: -1100px}
+    }
+    
 }

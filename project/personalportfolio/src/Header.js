@@ -2,16 +2,7 @@ import React from "react"
 import family from "./my-family.JPG"
 
 function Header(){
-   
-    // const person = name.map((item) => (
-    //     <div className="img-holder"> 
-    //             <img className="box" height="100px" src={item.src}/>
-    //             <div className="p-container">
-    //                 <p className="p">{item.name}</p>
-    //             </div>
-    //     </div>
-  
-    // ))
+
     return(
         <div className="header-container">
            <div className="img-holder"> 
