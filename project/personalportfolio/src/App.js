@@ -6,31 +6,29 @@ import Project from "./Project"
 import Footer from "./Footer"
 
 function App (){
-          const [dropdownOpen, setDropdownOpen] = useState(false);
+          const [dropdownOpen, setDropdownOpen] = useState(true);
 
-          const toggle = () => {
-              setDropdownOpen(prevState => !prevState)
-          };
+        //   const toggle = () => {
+        //       setDropdownOpen(prevState => !prevState)
+        //   };
   
     return(
-        <div>
-            <nav className="nav">
-                   <h1> ALI GODRATIPOUR  </h1>
-                 
-            </nav>
+        <div className="home">
           
             {dropdownOpen
              ?
-                <div onMouseLeave={toggle} className='nav-links'>
-                    <h1>X</h1>
-                    <ul >
-                        <Link  to="/">home</Link>
-                        <Link to="/projects">Projects</Link>
-                        <Link to="/Contact">skills</Link>
+                <div  className='nav'>
+                    {/* onMouseLeave={toggle} */}
+                    {/* <h1>X</h1> */}
+                    <ul className="nav-list">
+                        <Link  to="/" className="Link">home</Link>
+                        <Link to="/projects" className="Link">Projects</Link>
+                        <Link to="/Contact" className="Link">skills</Link>
                     </ul>
                 </div>
              :
-             <img className="menu" height="50px" src="https://www.freeiconspng.com/uploads/menu-icon-8.png" onMouseEnter={toggle}/>
+             <img className="menu" height="50px" src="https://www.freeiconspng.com/uploads/menu-icon-8.png" />
+            //  onMouseEnter={toggle}
             }
             
             <Switch>
