@@ -4,7 +4,7 @@ import Header from "./Header"
 function Home(){
     return(
         <div>
-            <h1 className="h1-home">Wellcome To My Portfolio</h1>
+            <h1 className="h1-home">Alireza ghodratipour</h1>
             <div className="myself">
              <p className="p-myself">I m an Analytical Software Developer, skilled at coding in Scada. 
              I have 8 years of experience developing applications for the control room.
