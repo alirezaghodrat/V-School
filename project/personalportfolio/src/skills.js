@@ -23,6 +23,8 @@ function Contact(){
                             <li>CSS3/SASS</li>
                         </ul>
                     </div>
+                    <>
+                    </>
                     <div className="each-skill-div">
                          <h3>Frameworks</h3>
                          <ul>
