@@ -1,24 +1,26 @@
 import React from "react"
 import family from "./my-family.JPG"
+import currencyPreview from './currency-preview.png'
+import speedgame from './speedgame.png'
 
 function Header(){
 
     return(
         <div className="header-container">
-           <div className="img-holder"> 
+           {/* <div className="img-holder"> 
                 <img className="box" height="100px" src={family}/>
                 <div className="p-container">
                     <p className="p">I have an amazing familly</p>
                 </div>
-            </div>
+            </div> */}
             <div className="img-holder"> 
-                    <img className="box" height="100px" src="https://images.unsplash.com/photo-1530915365347-e35b749a0381?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"/>
+                    <img className="box" height="100px" src={currencyPreview }/>
                     <div className="p-container">
                         <p className="p">I love tennis</p>
                     </div>
             </div>
             <div className="img-holder"> 
-                    <img className="box" height="100px" src="https://miro.medium.com/max/5040/1*KYSliSP3N229fAgbPev3hA.jpeg"/>
+                    <img className="box" height="100px" src={speedgame}/>
                     <div className="p-container">
                         <p className="p">Coding is life!</p>
                     </div>

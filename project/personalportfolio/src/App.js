@@ -22,7 +22,7 @@ function App (){
                     {/* <h1>X</h1> */}
                     <ul className="nav-list">
                         <Link  to="/" className="Link">home</Link>
-                        <Link to="/projects" className="Link">Projects</Link>
+                        <Link to="/about" className="Link">about</Link>
                         <Link to="/Contact" className="Link">skills</Link>
                     </ul>
                 </div>
@@ -33,7 +33,7 @@ function App (){
             
             <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path="/projects" component={Project}/>
+                    <Route path="/about" component={Project}/>
                     <Route path="/contact" component={Contact}/>
             </Switch>
 
