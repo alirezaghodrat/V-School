@@ -14,15 +14,15 @@ function Header(){
                 </div>
             </div> */}
             <div className="img-holder"> 
-                    <img className="box" height="100px" src={currencyPreview }/>
+                     <a href="http://currencyexchange.surge.sh/"><img className="box" height="100px" src="https://www.moneywise.co.uk/sites/default/files/styles/node_main/public/currencies.jpg?itok=uIUJ6xJQ"/></a>
                     <div className="p-container">
-                        <p className="p">I love tennis</p>
+                        <p className="p">API project Built with React, JavaScript, HTML and CSS; integrated Axios to make client-side HTTP requests</p>
                     </div>
             </div>
             <div className="img-holder"> 
-                    <img className="box" height="100px" src={speedgame}/>
+                    <a href="http://speedgame.surge.sh/"><img className="box" height="100px" src="https://media.npr.org/assets/img/2010/10/28/flyingfingers_wide-66394a3796b3a38b91f672f7ff84351dafa2f818-s800-c85.jpg"/></a>
                     <div className="p-container">
-                        <p className="p">Coding is life!</p>
+                        <p className="p">Speed Games Built with React, JavaScript, HTML and CSS with pushing start you have 10S to type</p>
                     </div>
         </div>
         </div>

@@ -8,29 +8,38 @@ import Footer from "./Footer"
 function App (){
           const [dropdownOpen, setDropdownOpen] = useState(true);
 
-        //   const toggle = () => {
-        //       setDropdownOpen(prevState => !prevState)
-        //   };
+          const toggle = () => {
+              setDropdownOpen(prevState => !prevState)
+          };
   
     return(
         <div className="home">
-          
-            {dropdownOpen
-             ?
-                <div  className='nav'>
-                    {/* onMouseLeave={toggle} */}
-                    {/* <h1>X</h1> */}
-                    <ul className="nav-list">
-                        <Link  to="/" className="Link">home</Link>
-                        <Link to="/about" className="Link">about</Link>
-                        <Link to="/Contact" className="Link">skills</Link>
-                    </ul>
-                </div>
-             :
-             <img className="menu" height="50px" src="https://www.freeiconspng.com/uploads/menu-icon-8.png" />
-            //  onMouseEnter={toggle}
-            }
-            
+             <div className="no-mobile">
+                     <div className='nav'>
+                        <ul className="nav-list">
+                            <Link  to="/" className="Link">home</Link>
+                            <Link to="/about" className="Link">about</Link>
+                            <Link to="/Contact" className="Link">skills</Link>
+                        </ul>
+                    </div>
+             </div>
+             <div className="mobile">
+                {dropdownOpen
+                ?
+                    <div onMouseLeave={toggle} className='nav'>
+                        {/* onMouseLeave={toggle} */}
+                        <h1>X</h1>
+                        <ul className="nav-list">
+                            <Link  to="/" className="Link">home</Link>
+                            <Link to="/about" className="Link">about</Link>
+                            <Link to="/Contact" className="Link">skills</Link>
+                        </ul>
+                    </div>
+                :
+                <img onMouseEnter={toggle} className="menu" height="50px" src="https://www.freeiconspng.com/uploads/menu-icon-8.png" />
+                //  onMouseEnter={toggle}
+                }
+              </div>
             <Switch>
                     <Route exact path="/" component={Home} />
                     <Route path="/about" component={Project}/>
