@@ -6,7 +6,7 @@ import Project from "./Project"
 import Footer from "./Footer"
 
 function App (){
-          const [dropdownOpen, setDropdownOpen] = useState(true);
+          const [dropdownOpen, setDropdownOpen] = useState(false);
 
           const toggle = () => {
               setDropdownOpen(prevState => !prevState)
@@ -24,11 +24,11 @@ function App (){
                     </div>
              </div>
              <div className="mobile">
-                {dropdownOpen
+                {/* {dropdownOpen
                 ?
-                    <div onMouseLeave={toggle} className='nav'>
+                    <div onMouseLeave={toggle} className='nav'> */}
                         {/* onMouseLeave={toggle} */}
-                        <h1>X</h1>
+                        {/* <button>X</button>
                         <ul className="nav-list">
                             <Link  to="/" className="Link">home</Link>
                             <Link to="/about" className="Link">about</Link>
@@ -36,9 +36,12 @@ function App (){
                         </ul>
                     </div>
                 :
-                <img onMouseEnter={toggle} className="menu" height="50px" src="https://www.freeiconspng.com/uploads/menu-icon-8.png" />
-                //  onMouseEnter={toggle}
-                }
+                <img onMouseEnter={toggle} className="menu" height="50px" src="https://www.freeiconspng.com/uploads/menu-icon-8.png" /> */}
+                {/* //  onMouseEnter={toggle}
+                } */}
+                <div  onClick={toggle}>
+                    <button className="hamburger"> hehehe</button>
+                </div>
               </div>
             <Switch>
                     <Route exact path="/" component={Home} />

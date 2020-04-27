@@ -4,6 +4,7 @@ function Contact(){
     return(
         <>
             <h1 className="h1contact">Programming</h1>
+            <div className="skill">
             <div className="contact">
                 <div className="img-holder-skills">
                 <img className="imgcontact"src="https://p1.hiclipart.com/preview/951/574/485/react-logo-javascript-redux-vuejs-angular-angularjs-expressjs-front-and-back-ends-png-clipart.jpg" />
@@ -45,6 +46,7 @@ function Contact(){
                         </ul>
                     </div>
                 </div>
+                </div> 
          </div>
       </>
     )

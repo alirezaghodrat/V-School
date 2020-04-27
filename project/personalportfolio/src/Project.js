@@ -19,7 +19,7 @@ function Project(){
         </div>
         </div> */}
          <div>
-            <img src={profile} height={400} width={300}/>
+            <img className="my-img" src={profile}/>
          </div>
          <h2 className="about-me">
              I'm an Analytical Software Developer, skilled at coding in Scada. 
