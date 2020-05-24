@@ -6,8 +6,6 @@ import Profile from './components/Profile.js'
 import Public from './components/Public.js'
 import { UserContext } from './context/UserProvider.js'
 
-
-
 export default function App(){
   const { token, logout } = useContext(UserContext)
   return (
