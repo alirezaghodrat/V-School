@@ -16,7 +16,8 @@ export default function UserProvider(props){
     user: JSON.parse(localStorage.getItem("user")) || {}, 
     token: localStorage.getItem("token") || "", 
     todos: [] ,
-    errMsg:""
+    errMsg:"",
+    allTodos: []
   }
 
   const [userState, setUserState] = useState(initState)
@@ -58,7 +59,8 @@ export default function UserProvider(props){
     setUserState({
       user: {},
       token: "",
-      todos: []
+      todos: [],
+      allTodos: []
     })
   }
 
@@ -98,6 +100,41 @@ export default function UserProvider(props){
       .catch(err => console.log(err.response.data.errMsg))
   }
 
+  function getAllTodos(){
+    userAxios.get("/api/todo")
+      .then(res => {
+        setUserState(prevState => ({
+          ...prevState,
+          allTodos: res.data
+        }))
+      })
+      .catch(err => console.log(err))
+  }
+  
+  function upVote(id){
+    userAxios.put(`/api/todo/upvote/${id}`)
+      .then(res => {
+        setUserState(prevState => ({
+          ...prevState,
+          allTodos: prevState.allTodos.map(todo => todo._id === id ? res.data : todo),
+          todos: prevState.todos.map(todo => todo._id === id ? res.data : todo)
+        }))      
+      })
+      .catch(err => console.log(err.response.data.errMsg))
+  }
+
+  function downVote(id){
+    userAxios.put(`/api/todo/downvote/${id}`)
+      .then(res => {
+        setUserState(prevState => ({
+          ...prevState,
+          allTodos: prevState.allTodos.map(todo => todo._id === id ? res.data : todo),
+          todos: prevState.todos.map(todo => todo._id === id ? res.data : todo)
+        }))        
+      })
+      .catch(err => console.log(err.response.data.errMsg)) // You can only vote once per issue
+  }
+
   return (
     <UserContext.Provider
       value={{
@@ -106,7 +143,10 @@ export default function UserProvider(props){
         login,
         logout,
         addTodo,
-        resetAuthErr
+        getAllTodos,
+        resetAuthErr,
+        upVote,
+        downVote
       }}>
       { props.children }
     </UserContext.Provider>

@@ -20,9 +20,13 @@ const todoSchema = new Schema({
   comment: {
     type: String
   },
-  likes: {
+  vote: {
     type: Number,
     default: 0
+  },
+  usersWhoHaveVoted: {
+    type: [Schema.Types.ObjectId],
+    default: []
   },
   user: {
     type: Schema.Types.ObjectId,
