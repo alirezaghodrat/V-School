@@ -17,6 +17,13 @@ const todoSchema = new Schema({
     type: String,
     required: true
   },
+  comment: {
+    type: String
+  },
+  likes: {
+    type: Number,
+    default: 0
+  },
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",
