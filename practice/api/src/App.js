@@ -2,16 +2,32 @@ import React from "react"
 
 export default class App extends React.Component {
     state = {
-       loading:true
-    }
-    componentDidMount(){
-       const url = "https://api.randomuser.me/"
+       loading:true,
+       person: null
     }
 
+  async componentDidMount(){
+       const url = "https://api.randomuser.me/"
+       const respons = await fetch(url)
+       const data = await respons.json()
+       this.setState({person: data.results[0] , loading:false})
+       console.log(data.results[0].name.first)
+    }
+
+
+
     render(){
+        
         return(
             <div> 
-                {this.state.loading ? <div>loading ... </div> : <div>loading ... </div>}
+                {this.state.loading || !this.state.person ? 
+                (<div>loading ... </div>) :
+                (<div>
+                    <div>{this.state.person.name.title} </div>
+                    <div>{this.state.person.name.first} </div>
+                    <div>{this.state.person.name.last}</div> 
+                    <img src={this.state.person.picture.large} />
+                    </div>)}
             </div>
         )
     }
