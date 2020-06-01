@@ -1,4 +1,4 @@
-import React,{useState, useEffect, useContext} from 'react'
+import React,{ useEffect, useContext} from 'react'
 import {UserContext } from "../context/UserProvider.js"
 import TodoList from './TodoList.js'
 import Todo from './Todo.js'
