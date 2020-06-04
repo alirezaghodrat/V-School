@@ -3,7 +3,9 @@ const app = express()
 require('dotenv').config()
 const morgan = require('morgan')
 const mongoose = require('mongoose')
+const Todo = require('./models/todo.js')
 const expressJwt = require('express-jwt')
+
 
 app.use(express.json())
 app.use(morgan('dev'))
@@ -19,9 +21,16 @@ mongoose.connect(
   () => console.log('Connected to the DB')
 )
 
-app.use('/auth', require('./routes/authRouter.js'))
+app.use('/user', require('./routes/authRouter.js'))
 app.use('/api', expressJwt({ secret: process.env.SECRET })) // req.user
 app.use('/api/todo', require('./routes/todoRouter.js'))
+//upload a img
+// app.use(multer({ dest: ‘./uploads/’,
+//     rename: function (fieldname, filename) {
+//       return filename;
+//     },
+//    }));
+
 
 app.use((err, req, res, next) => {
   console.log(err)

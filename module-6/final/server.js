@@ -9,7 +9,7 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 mongoose.connect(
-  'mongodb://localhost:27017/socialape',
+  'mongodb://localhost:27017/user-authentication',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -31,6 +31,6 @@ app.use((err, req, res, next) => {
   return res.send({errMsg: err.message})
 })
 
-app.listen(9001, () => {
-  console.log(`Server is running on local port 9001`)
+app.listen(9000, () => {
+  console.log(`Server is running on local port 9000`)
 })

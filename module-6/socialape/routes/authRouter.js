@@ -5,27 +5,27 @@ const jwt = require('jsonwebtoken')
 
 // Signup
 authRouter.post("/signup", (req, res, next) => {
-  User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
-    if(err){
-      res.status(500)
-      return next(err)
-    }
-    if(user){
-      res.status(403)
-      return next(new Error("That username is already taken"))
-    }
-    const newUser = new User(req.body)
-    newUser.save((err, savedUser) => {
+    User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
       if(err){
         res.status(500)
         return next(err)
       }
-                            // payload,            // secret
-      const token = jwt.sign(savedUser.withoutPassword(), process.env.SECRET)
-      return res.status(201).send({ token, user: savedUser.withoutPassword() })
+      if(user){
+        res.status(403)
+        return next(new Error("That username is already taken"))
+      }
+      const newUser = new User(req.body)
+      newUser.save((err, savedUser) => {
+        if(err){
+          res.status(500)
+          return next(err)
+        }
+                              // payload,            // secret
+        const token = jwt.sign(savedUser.withoutPassword(), process.env.SECRET)
+        return res.status(201).send({ token, user: savedUser.withoutPassword() })
+      })
     })
   })
-})
 
 // Login
 authRouter.post("/login", (req, res, next) => {

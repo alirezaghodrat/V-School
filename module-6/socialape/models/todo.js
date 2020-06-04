@@ -16,7 +16,11 @@ const todoSchema = new Schema({
   like: {
     type: Number,
     default: 0
-  },
+  }, 
+  img: {
+      data:Buffer,
+      contentType: String
+  },      
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",
