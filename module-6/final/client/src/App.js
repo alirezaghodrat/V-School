@@ -1,36 +1,53 @@
-import React, { useContext } from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
-import Navbar from './components/Navbar.js'
-import Auth from './components/Auth.js'
-import Profile from './components/Profile.js'
-import Public from './components/Public.js'
-import ProtectedRoute from './components/ProtectedRoute.js'
-import { UserContext } from './context/UserProvider.js'
+import React, {useState, useEffect, useContext} from 'react';
+import {Route, Switch, Link} from 'react-router-dom'
+import axios from 'axios'
+import {DateContext} from './components/context/DateContext'
+import TimerPage from './components/TimerPage'
+import AddEvent from './components/AddEvent'
+import List from './components/List'
 
+function App() {
+  const {setUpdate, update} = useContext(DateContext)
+  const [dates, setDates] = useState()
 
-export default function App(){
-  const { token, logout } = useContext(UserContext)
+  useEffect(() => {
+    axios.get('/events')
+      .then(resp => setDates(() => resp.data))
+      .catch(err => console.log(err))
+    setUpdate(() => false)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [update])
+
+  if(dates){
   return (
-    <div className="app">
-       <Navbar logout={logout} token={token}/>
-      <Switch>
-        <Route 
-          exact path="/" 
-          render={()=> token ? <Redirect to="/profile"/> : <Auth />}
-        />
-        <ProtectedRoute 
-          path="/profile"
-          component={Profile}
-          redirectTo="/"
-          token={token}
-        />
-        <ProtectedRoute
-          path="/public"
-          component={Public}
-          redirectTo="/"
-          token={token}
-        />
-      </Switch>
-    </div>
+    <Switch>
+      <Route exact path='/'>
+        <div className="home">
+            <Link to='/filterpage' className="event">Upcoming Events</Link>
+            <Link to='/listpage' className="event">Add New Event</Link>
+        </div>
+      </Route>
+      <Route path='/listpage'>
+        <div className="listPage">
+            <AddEvent />
+            <List dates={dates}/>
+        </div>
+      </Route>
+      <Route path='/filterpage' >
+        <div>
+            <h1 className="filterpage">7 Day List</h1>
+            <List dates={dates}/>
+        </div>
+      </Route>
+      <Route path='/timerpage/:dateId'>
+        <TimerPage dates={dates}/>
+      </Route>
+    </Switch>
+    
+  )}
+  return (
+    <div>Loading...</div>
   )
 }
+
+export default App;

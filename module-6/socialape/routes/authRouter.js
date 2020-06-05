@@ -3,7 +3,7 @@ const authRouter = express.Router()
 const User = require('../models/user.js')
 const jwt = require('jsonwebtoken')
 
-// Signup
+// Signup add email the confirm the password handel add user photo by default is empty imag
 authRouter.post("/signup", (req, res, next) => {
     User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
       if(err){

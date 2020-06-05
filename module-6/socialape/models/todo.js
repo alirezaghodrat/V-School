@@ -10,17 +10,26 @@ const todoSchema = new Schema({
     type: String,
     required: true
   },
-  comment: {
-    type: String
+  createAt:{
+      type:Date,
+      default:Date.now
   },
-  like: {
+  commentCount: {
+    type: Number
+  },
+  likeCount: {
     type: Number,
     default: 0
   }, 
-  img: {
-      data:Buffer,
-      contentType: String
-  },      
+   bio:{
+       type:String
+   },
+   website:{
+       type:String
+   },
+   location:{
+       type:String
+   },  
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",

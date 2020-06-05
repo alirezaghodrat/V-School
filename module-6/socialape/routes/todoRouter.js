@@ -3,7 +3,54 @@ const todoRouter = express.Router()
 const Todo = require('../models/todo.js')
 const User = require("../models/user.js")
 
-// Get All Todos
+
+//get scream 
+//{
+//     screamId:644545,
+//     body: "",
+//     createAt:3/3/0200
+// }
+//I whant the latest one first ?????
+
+todoRouter.get("/screams", (req, res, next) => {
+    let screams =[]
+    Todo.find((err, todos) => {
+        Todo.find({ user: req.user._id }, (err, data) => {
+            if(err){
+                res.status(500)
+                return next(err)
+              }
+              return  res.status(200).send(todos.data.forEach((doc)=>{
+                  screams.push({
+                      scraemId: doc.id,
+                      body: doc.data().userHandle,
+                      createdAt: doc.data().createdAt
+                  })
+              }))
+        })
+    })
+})
+
+//post one scream
+todoRouter.post("/", (req, res, next) => {
+    const newScream ={
+        body:req.body.body,
+        userHandle: req.body.userHandle, 
+        createdAt: new Date().toISOString()
+    }
+    req.body.user = req.user._id
+    const newTodo = new Todo(req.body)
+    newTodo.save((err, savedTodo) => {
+      if(err){
+        res.status(500)
+        return next(err)
+      }
+      return res.status(201).send(savedTodo)
+    })
+  })
+
+
+// Get All Todos-reduce user detail
 todoRouter.get("/", (req, res, next) => {
   Todo.find((err, todos) => {
     if(err){
@@ -15,7 +62,7 @@ todoRouter.get("/", (req, res, next) => {
 })
 
 
-// Get todos by user id
+// Get user todos -get own user detail
 todoRouter.get("/user", (req, res, next) => {
   Todo.find({ user: req.user._id }, (err, todos) => {
     if(err){
@@ -68,107 +115,103 @@ todoRouter.put("/:todoId",  (req, res, next) => {
     }
   )
 })
-
-//upload img 
-// todoRouter.post("/", (req, res, next) => {
-//     var newItem = new Item();
-//  newItem.img.data = fs.readFileSync(req.files.userPhoto.path)
-//  newItem.img.contentType = "image/png";
-//  newItem.save();
-// })
-//upload img 2
+////////////////////////////////////////
+// upload img 
 todoRouter.post("/", (req, res, next) => {
-    const BusBooy = require('busboy');
-    const path = require("path");
-    const os = require("os");
-    const fs = require("fs")
+    var newItem = new Item();
+ newItem.img.data = fs.readFileSync(req.files.userPhoto.path)
+ newItem.img.contentType = "image/png";
+ newItem.save();
+})
+/////////////////////////////////////////////
+//upload img 2
+// todoRouter.post("/", (req, res, next) => {
+//     const BusBooy = require('busboy');
+//     const path = require("path");
+//     const os = require("os");
+//     const fs = require("fs")
 
-    const busboy = new BusBooy({ headers : req.headers })
+//     const busboy = new BusBooy({ headers : req.headers })
       
-    let imageFileName;
-    let imageToBeUploaded ={}
+//     let imageFileName;
+//     let imageToBeUploaded ={}
 
-    busboy.on('file',(fieldname,file,filename,encoding,mimtype)=>{
-        console.log(fieldname)
-        console.log(filename)
-        console.log(mimetype)
-        // my.image.png
-        const imageExtension = filename.split('.')[filename.split('.').length-1]
-        //476756387563445378.png
-        ImageFileName = `${Math.round(Math.random()*1000000000000)}.${imageExtension}`
-        const filepath = path.join(os.tmpdir(),imageFileName)
-        imageToBeUploaded ={ filepath,mimtype}
-        file.pipe(fs.createWriteStream())
-    })
-    busboy.on('finish',()=>{
-        admin.storage().bucket().upload(imageToBeUploaded.filepath, {
-            resumable: false,
-            metadata:{
-                metadata:{
-                contentType: imageToBeUploaded.mimetype
+//     busboy.on('file',(fieldname,file,filename,encoding,mimtype)=>{
+//         console.log(fieldname)
+//         console.log(filename)
+//         console.log(mimetype)
+//         // my.image.png
+//         const imageExtension = filename.split('.')[filename.split('.').length-1]
+//         //476756387563445378.png
+//         ImageFileName = `${Math.round(Math.random()*1000000000000)}.${imageExtension}`
+//         const filepath = path.join(os.tmpdir(),imageFileName)
+//         imageToBeUploaded ={ filepath,mimtype}
+//         file.pipe(fs.createWriteStream())
+//     })
+//     busboy.on('finish',()=>{
+//         admin.storage().bucket().upload(imageToBeUploaded.filepath, {
+//             resumable: false,
+//             metadata:{
+//                 metadata:{
+//                 contentType: imageToBeUploaded.mimetype
+//             }
+//         }
+//         })
+//         .then(()=> {
+//             const imageUrl =`https://fi `
+//         })
+//     })
+// })
+//////////////////////////////////////////////////////////
+//reduce user detail
+// todoRouter.get("/", (req, res, next) => {
+//     let userDetail={};
+
+//     if(!isEmpty(data.bio.trim())) userDetail.bio = data.bio
+//     if(!isEmpty(data.bio.trim())){
+//         //https://website.com
+//         if(data.website.trim().substring(0,4) !== 'http'){
+//             userDetail.website=`http://${data.website.trim()}`
+//         }else userDetail.website = data.website
+//     }
+//     if(!isEmpty(data.location.trim())) userDetail.location = data.location
+//     return userDetail
+// })
+
+/////////////////////////////////////////
+// like
+
+todoRouter.put("/like/:todoId", async (req, res, next) =>{
+   Todo.findOneAndUpdate(
+      { _id: req.params.todoId },
+       { $inc: {like: 1}},
+      {new: true},
+      (err,updatelike)=>{
+          if(err){
+              res.status(500)
+              return next(err)
+          }
+          return res.status(201).send(updatelike)
+      }
+    )
+})
+
+//unlike
+todoRouter.put("/unlike/:todoId", async (req, res, next) =>{
+    Todo.findOneAndUpdate(
+        { _id: req.params.todoId },
+         { $inc: {like: 1}},
+        {new: true},
+        (err,updatelike)=>{
+            if(err){
+                res.status(500)
+                return next(err)
             }
+            return res.status(201).send(updatelike)
         }
-        })
-        .then(()=> {
-            const imageUrl =`https://fi `
-        })
-    })
-})
-// vote the president
+      )
+  })
+ //comment - sort with create at
 
-  // check whether the person voting has already voted on this issue, and deny them
-  // Either upvote/downvote issue.
-todoRouter.put("/upvote/:todoId", async (req, res, next) =>{
-  try {
-    // Has this user already voted
-    const todoToUpdate = await Todo.findOne({_id: req.params.todoId})
-   
-    if(todoToUpdate.usersWhoHaveVoted.includes(req.user._id)){
-      res.status(401)
-      return next(new Error("You can only vote once per issue."))
-    }
-    const updatedTodo = await Todo.findOneAndUpdate(
-      { _id: req.params.todoId },
-      { 
-        $inc: {vote: 1},
-        $push: { usersWhoHaveVoted: req.user._id}
-      },
-      {new: true}
-    )
-    
-    return res.status(201).send(updatedTodo)
-  }
-  catch(err){
-    res.status(500)
-    return next(err)
-  }
-})
-
-todoRouter.put("/downvote/:todoId", async (req, res, next) =>{
-  try {
-    // Has this user already voted
-    const todoToUpdate = await Todo.findOne({_id: req.params.todoId})
-    if(todoToUpdate.usersWhoHaveVoted.includes(req.user._id)){
-      res.status(401)
-      return next(new Error("You can only vote once per issue."))
-    }
-
-    const updatedTodo = await Todo.findOneAndUpdate(
-      { _id: req.params.todoId },
-      { 
-        $inc: {vote: -1},
-        $push: { usersWhoHaveVoted: req.user._id}
-      },
-      {new: true}
-    )
-    
-    return res.status(201).send(updatedTodo)
-  }
-  catch(err){
-    res.status(500)
-    return next(err)
-  }
-
-})
-
+ //get notification
 module.exports = todoRouter

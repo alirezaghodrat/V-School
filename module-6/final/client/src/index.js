@@ -1,15 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
-import App from './App.js'
-import UserProvider from './context/UserProvider.js'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import {DateContextProvider} from './components/context/DateContext'
+import {BrowserRouter as Router} from 'react-router-dom'
 
 ReactDOM.render(
-  <BrowserRouter>
-    <UserProvider>
-      <App/>
-    </UserProvider>
-  </BrowserRouter>, 
-  document.getElementById('root')
-)
+        <DateContextProvider>
+            <Router>
+                <App />
+            </Router>
+        </DateContextProvider>, 
+        document.getElementById('root')
+    );
+
