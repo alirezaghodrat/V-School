@@ -4,23 +4,11 @@ const Schema = mongoose.Schema
 const todoSchema = new Schema({
   title: {
     type: String,
-    required: true
-  },
-  userHandle: {
-    type: String,
-    required: true
   },
   createAt:{
       type:Date,
       default:Date.now
   },
-  commentCount: {
-    type: Number
-  },
-  likeCount: {
-    type: Number,
-    default: 0
-  }, 
    bio:{
        type:String
    },
@@ -29,7 +17,19 @@ const todoSchema = new Schema({
    },
    location:{
        type:String
-   },  
+   },   
+  like: {
+    type: [Number],
+    default: []
+  },
+  unlike: {
+    type: [Number],
+    default: []
+  },
+  comments: {
+    type: [Object],
+    default: []
+  },
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",

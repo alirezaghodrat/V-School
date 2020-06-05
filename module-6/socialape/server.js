@@ -24,12 +24,7 @@ mongoose.connect(
 app.use('/user', require('./routes/authRouter.js'))
 app.use('/api', expressJwt({ secret: process.env.SECRET })) // req.user
 app.use('/api/todo', require('./routes/todoRouter.js'))
-//upload a img
-// app.use(multer({ dest: ‘./uploads/’,
-//     rename: function (fieldname, filename) {
-//       return filename;
-//     },
-//    }));
+app.use('/api/scream', require('./routes/screamRouter.js'))
 
 
 app.use((err, req, res, next) => {

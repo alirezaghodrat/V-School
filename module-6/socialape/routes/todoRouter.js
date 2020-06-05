@@ -2,52 +2,7 @@ const express = require("express")
 const todoRouter = express.Router()
 const Todo = require('../models/todo.js')
 const User = require("../models/user.js")
-
-
-//get scream 
-//{
-//     screamId:644545,
-//     body: "",
-//     createAt:3/3/0200
-// }
-//I whant the latest one first ?????
-
-todoRouter.get("/screams", (req, res, next) => {
-    let screams =[]
-    Todo.find((err, todos) => {
-        Todo.find({ user: req.user._id }, (err, data) => {
-            if(err){
-                res.status(500)
-                return next(err)
-              }
-              return  res.status(200).send(todos.data.forEach((doc)=>{
-                  screams.push({
-                      scraemId: doc.id,
-                      body: doc.data().userHandle,
-                      createdAt: doc.data().createdAt
-                  })
-              }))
-        })
-    })
-})
-
-//post one scream
-todoRouter.post("/", (req, res, next) => {
-    const newScream ={
-        body:req.body.body,
-        userHandle: req.body.userHandle, 
-        createdAt: new Date().toISOString()
-    }
-    req.body.user = req.user._id
-    const newTodo = new Todo(req.body)
-    newTodo.save((err, savedTodo) => {
-      if(err){
-        res.status(500)
-        return next(err)
-      }
-      return res.status(201).send(savedTodo)
-    })
-  })
+const Screams = require('../models/screams.js')
 
 
 // Get All Todos-reduce user detail
@@ -73,7 +28,7 @@ todoRouter.get("/user", (req, res, next) => {
   })
 })
 
-// Add new Todo
+// Add new Todo -add user detail
 todoRouter.post("/", (req, res, next) => {
   req.body.user = req.user._id
   const newTodo = new Todo(req.body)
@@ -115,14 +70,27 @@ todoRouter.put("/:todoId",  (req, res, next) => {
     }
   )
 })
+
+// Get issue and its comments by _id
+todoRouter.get("/:todoId" ,async (req, res, next) => {
+    try {
+      const issue = await Issue.findOne({ _id: req.params._id });
+      const comments = await Comment.find({ issue: issue._id });
+      return res.status(200).send({...issue.toObject(), comments});
+    } catch (err) {
+      res.status(500);
+      return next(err);
+    }
+  })
+
 ////////////////////////////////////////
 // upload img 
-todoRouter.post("/", (req, res, next) => {
-    var newItem = new Item();
- newItem.img.data = fs.readFileSync(req.files.userPhoto.path)
- newItem.img.contentType = "image/png";
- newItem.save();
-})
+// todoRouter.post("/", (req, res, next) => {
+//     var newItem = new Item();
+//  newItem.img.data = fs.readFileSync(req.files.userPhoto.path)
+//  newItem.img.contentType = "image/png";
+//  newItem.save();
+// })
 /////////////////////////////////////////////
 //upload img 2
 // todoRouter.post("/", (req, res, next) => {
