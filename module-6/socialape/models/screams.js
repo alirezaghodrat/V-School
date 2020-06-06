@@ -15,6 +15,14 @@ const screamsSchema = new Schema({
     ref: "User",
     required: true
   },
+  likeCount: {
+    type: Number,
+    default: 0
+  },
+  commentsCount: {
+    type: Object,
+    default: 0
+  },
   userHandle:{
       type: String
   }

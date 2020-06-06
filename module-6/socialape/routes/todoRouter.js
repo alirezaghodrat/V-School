@@ -147,38 +147,7 @@ todoRouter.get("/:todoId" ,async (req, res, next) => {
 // })
 
 /////////////////////////////////////////
-// like
 
-todoRouter.put("/like/:todoId", async (req, res, next) =>{
-   Todo.findOneAndUpdate(
-      { _id: req.params.todoId },
-       { $inc: {like: 1}},
-      {new: true},
-      (err,updatelike)=>{
-          if(err){
-              res.status(500)
-              return next(err)
-          }
-          return res.status(201).send(updatelike)
-      }
-    )
-})
-
-//unlike
-todoRouter.put("/unlike/:todoId", async (req, res, next) =>{
-    Todo.findOneAndUpdate(
-        { _id: req.params.todoId },
-         { $inc: {like: 1}},
-        {new: true},
-        (err,updatelike)=>{
-            if(err){
-                res.status(500)
-                return next(err)
-            }
-            return res.status(201).send(updatelike)
-        }
-      )
-  })
  //comment - sort with create at
 
  //get notification

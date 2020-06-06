@@ -14,8 +14,10 @@ commentRouter.get("/:_id", (req, res, next) => {
   })
 })
  
-//post the comment on the scream as an aray ? order by the lastest ?????????
+//post the comment on the scream as an aray ? order by the lastest ????????? 
+// i want when i get sceama see the comment as a array and comment count pulse when we commenting
 // /scream/:screamId/comment
+//and i have to make a sprate function for comment on comment ??
 commentRouter.post("/:_id", (req, res, next) => {
   req.body.user = req.user._id;
   req.body.scream = req.params._id;
