@@ -4,30 +4,29 @@ const Schema = mongoose.Schema
 const todoSchema = new Schema({
   title: {
     type: String,
+    required: true
   },
-  createAt:{
-      type:Date,
-      default:Date.now
+  description: {
+    type: String
   },
-   bio:{
-       type:String
-   },
-   website:{
-       type:String
-   },
-   location:{
-       type:String
-   },   
-  like: {
-    type: [Number],
-    default: []
+  completed: {
+    type: Boolean,
+    default: false
   },
-  unlike: {
-    type: [Number],
-    default: []
+  imgUrl: {
+    type: String,
+    required: true
   },
   comments: {
     type: [Object],
+    default: []
+  },
+  vote: {
+    type: Number,
+    default: 0
+  },
+  usersWhoHaveVoted: {
+    type: [Schema.Types.ObjectId],
     default: []
   },
   user: {

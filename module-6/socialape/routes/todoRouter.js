@@ -2,10 +2,8 @@ const express = require("express")
 const todoRouter = express.Router()
 const Todo = require('../models/todo.js')
 const User = require("../models/user.js")
-const Screams = require('../models/screams.js')
 
-
-// Get All Todos-reduce user detail
+// Get All Todos
 todoRouter.get("/", (req, res, next) => {
   Todo.find((err, todos) => {
     if(err){
@@ -16,8 +14,7 @@ todoRouter.get("/", (req, res, next) => {
   })
 })
 
-
-// Get user todos -get own user detail
+// Get todos by user id
 todoRouter.get("/user", (req, res, next) => {
   Todo.find({ user: req.user._id }, (err, todos) => {
     if(err){
@@ -28,7 +25,20 @@ todoRouter.get("/user", (req, res, next) => {
   })
 })
 
-// Add new Todo -add user detail
+// Get issue and its comments by _id
+  todoRouter.get("/:todoId" ,async (req, res, next) => {
+    try {
+      const todo = await Todo.findOne({ _id: req.params.todoId });
+      const comments = await Comment.find({ todo: todo._id });
+      return res.status(200).send({...todo.toObject(), comments});
+    } catch (err) {
+      res.status(500);
+      return next(err);
+    }
+  })
+
+
+// Add new Todo
 todoRouter.post("/", (req, res, next) => {
   req.body.user = req.user._id
   const newTodo = new Todo(req.body)
@@ -43,17 +53,17 @@ todoRouter.post("/", (req, res, next) => {
 
 // Delete Todo
 todoRouter.delete("/:todoId", (req, res, next) => {
-    Todo.findOneAndDelete(
-      { _id: req.params.todoId, user: req.user._id },
-      (err, deletedTodo) => {
-        if(err){
-          res.status(500)
-          return next(err)
-        }
-        return res.status(200).send(`Successfully delete todo: ${deletedTodo.title}`)
+  Todo.findOneAndDelete(
+    { _id: req.params.todoId, user: req.user._id },
+    (err, deletedTodo) => {
+      if(err){
+        res.status(500)
+        return next(err)
       }
-    )
-  })
+      return res.status(200).send(`Successfully delete todo: ${deletedTodo.title}`)
+    }
+  )
+})
 
 // Update Todo
 todoRouter.put("/:todoId",  (req, res, next) => {
@@ -71,17 +81,67 @@ todoRouter.put("/:todoId",  (req, res, next) => {
   )
 })
 
-// Get issue and its comments by _id
-todoRouter.get("/:todoId" ,async (req, res, next) => {
-    try {
-      const issue = await Issue.findOne({ _id: req.params._id });
-      const comments = await Comment.find({ issue: issue._id });
-      return res.status(200).send({...issue.toObject(), comments});
-    } catch (err) {
-      res.status(500);
-      return next(err);
+// vote the president
+
+  // check whether the person voting has already voted on this issue, and deny them
+  // Either upvote/downvote issue.
+todoRouter.put("/upvote/:todoId", async (req, res, next) =>{
+  try {
+    // Has this user already voted
+    const todoToUpdate = await Todo.findOne({_id: req.params.todoId})
+   
+    if(todoToUpdate.usersWhoHaveVoted.includes(req.user._id)){
+      res.status(401)
+      return next(new Error("You can only vote once per issue."))
     }
-  })
+
+    const updatedTodo = await Todo.findOneAndUpdate(
+      { _id: req.params.todoId },
+      { 
+        $inc: {vote: 1},
+        $push: { usersWhoHaveVoted: req.user._id}
+      },
+      {new: true}
+    )
+    
+    return res.status(201).send(updatedTodo)
+  }
+  catch(err){
+    res.status(500)
+    return next(err)
+  }
+})
+
+todoRouter.put("/downvote/:todoId", async (req, res, next) =>{
+ 
+  try {
+    // Has this user already voted
+    const todoToUpdate = await Todo.findOne({_id: req.params.todoId})
+   
+    if(todoToUpdate.usersWhoHaveVoted.includes(req.user._id)){
+      res.status(401)
+      return next(new Error("You can only vote once per issue."))
+    }
+
+    const updatedTodo = await Todo.findOneAndUpdate(
+      { _id: req.params.todoId },
+      { 
+        $inc: {vote: -1},
+        $push: { usersWhoHaveVoted: req.user._id}
+      },
+      {new: true}
+    )
+    
+    return res.status(201).send(updatedTodo)
+  }
+  catch(err){
+    res.status(500)
+    return next(err)
+  }
+
+})
+
+module.exports = todoRouter
 
 ////////////////////////////////////////
 // upload img 
@@ -146,9 +206,4 @@ todoRouter.get("/:todoId" ,async (req, res, next) => {
 //     return userDetail
 // })
 
-/////////////////////////////////////////
 
- //comment - sort with create at
-
- //get notification
-module.exports = todoRouter

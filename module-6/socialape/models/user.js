@@ -20,11 +20,7 @@ const userSchema = new Schema({
   isAdmin: {
     type: Boolean,
     default: false
-  }, 
-   img: {
-    data:Buffer,
-    contentType: String
-}, 
+  }
 })
 
 //pre save hook to encrypt user passwords on signup

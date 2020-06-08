@@ -1,9 +1,9 @@
 const express = require("express");
 const commentRouter = express.Router();
-const Screams = require('../models/screams.js')
+const Issue = require('../models/todo.js')
 const Comment = require("../models/comment.js");
 
-//get comment
+// get comment
 commentRouter.get("/:_id", (req, res, next) => {
   Comment.find({issue: req.params._id}, (err, comments) => {
     if(err){
@@ -20,7 +20,7 @@ commentRouter.get("/:_id", (req, res, next) => {
 //and i have to make a sprate function for comment on comment ??
 commentRouter.post("/:_id", (req, res, next) => {
   req.body.user = req.user._id;
-  req.body.scream = req.params._id;
+  req.body.issue = req.params._id;
   req.body.postingUser = req.user.username;
   const newComment = new Comment(req.body);
   newComment.save((err, comment) => {
