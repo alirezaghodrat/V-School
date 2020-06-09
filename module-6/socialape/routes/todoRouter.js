@@ -41,15 +41,24 @@ todoRouter.get("/user", (req, res, next) => {
 // Add new Todo
 todoRouter.post("/", (req, res, next) => {
   req.body.user = req.user._id
-  const newTodo = new Todo(req.body)
-  newTodo.save((err, savedTodo) => {
-    if(err){
-      res.status(500)
-      return next(err)
-    }
-    return res.status(201).send(savedTodo)
+  User.findOne({_id: req.user._id},(err, user) => {
+      if(err){
+        res.status(500)
+        return next(err)
+      }
+      req.body.username = user.username
+      const newTodo = new Todo(req.body)
+      newTodo.save((err, savedTodo) => {
+        if(err){
+          res.status(500)
+          return next(err)
+        }
+        return res.status(201).send(savedTodo)
+      })
   })
+  
 })
+
 
 // Delete Todo
 todoRouter.delete("/:todoId", (req, res, next) => {

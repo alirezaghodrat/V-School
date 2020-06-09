@@ -95,6 +95,12 @@
   padding: 16px;
   border-radius: 5px
 }
+.profile-img{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+
+}
 
 .profile > form > input,
 .profile > form > button {

@@ -17,10 +17,6 @@ const todoSchema = new Schema({
     type: String,
     required: true
   },
-  comments: {
-    type: [Object],
-    default: []
-  },
   vote: {
     type: Number,
     default: 0
@@ -33,6 +29,9 @@ const todoSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
     required: true
+  },
+  username: {
+    type: String
   }
 })
 

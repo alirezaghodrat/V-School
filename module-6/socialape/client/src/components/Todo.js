@@ -1,4 +1,4 @@
-import React, { useContext,useState } from 'react'
+import React, { useContext,useState, useEffect } from 'react'
 import { UserContext } from "../context/UserProvider.js"
 import Comments from "./comment/Comments.js";
 import CommentForm from "./comment/CommentForm.js";
@@ -9,15 +9,15 @@ export default function Todo(props){
   const { upVote, downVote ,getComments,addComment} = useContext(UserContext)
   const { username,title, description,_id ,imgUrl ,vote ,comments } = props
   // const { _id } = useParams();
-
+  console.log(props)
 
   const [commentToggle, setCommentToggle] = useState(false);
   const [commentInput, setCommentInput] = useState("");
   
 
-  // useEffect(() => {
-  //    getIssue(_id);
-  // }, [getIssue, _id]);
+  useEffect(() => {
+     getComments(_id);
+  }, []);
 
   const toggler = () => {
     setCommentToggle(p => !p)
@@ -25,6 +25,7 @@ export default function Todo(props){
   const handleChange = e => setCommentInput(e.target.value);
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(_id, commentInput)
     addComment(_id, { text: commentInput });
   };
   return (

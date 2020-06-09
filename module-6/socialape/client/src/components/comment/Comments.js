@@ -6,7 +6,7 @@ export default function Comments(props) {
   return (
     <div>
       {comments.map(comment => (
-        <p key={comment._id}>{comment.text}</p>
+        <p key={comment._id}>{comment.postingUser}:{comment.text}</p>
       ))}
     </div>
   );

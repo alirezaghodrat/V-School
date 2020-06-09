@@ -111,21 +111,77 @@ export default function UserProvider(props){
       .catch(err => console.log(err))
   }
   
-    // get the comments for a specific post by ID
-    const getComments = useCallback(_id => {
-      userAxios.get(`/api/comment/${_id}`)
-        .then(res => {
-          setUserState(prev => {
-            const issueToUpdate = Object.assign({}, prev.issue);
-            issueToUpdate.comments.push(...res.data);
-            return {
-              ...prev,
-              issue: issueToUpdate
-            };
-          });
-        })
-        .catch(err => console.log(err));
-    }, []);
+  // const addComment = (_id, comment) => {
+  //   issueAxios
+  //     .post(`/api/comment/${_id}`, comment)
+  //     .then(res => {
+  //       const issueToUpdate = Object.assign({}, issueState.issue);
+  //       issueToUpdate.comments.push(res.data);
+  //       setIssueState(prev => ({
+  //         ...prev,
+  //         issue: issueToUpdate
+  //       }));
+  //     })
+  //     .catch(err => console.log(err));
+  // };
+/////////////////////////////////////////////////////////
+    // const getComments = useCallback(_id => {
+  //   userAxios.get(`/api/comment/${_id}`)
+  //     .then(res => {
+  //       setUserState(prev => {
+  //         const todoToUpdate = Object.assign({}, prev.todo);
+  //         todoToUpdate.comments.push(...res.data);
+  //         return {
+  //           ...prev,
+  //           todo: todoToUpdate
+  //         };
+  //       });
+  //     })
+  //     .catch(err => console.log(err));
+  // }, []);
+    const addComment = (_id, comment) => {
+      userAxios.post(`/api/comment/${_id}`, comment)
+      .then(res => {
+        setUserState(prev => {
+          const todoToUpdate = prev.allTodos.find(todo => todo._id === _id)
+          todoToUpdate.comments.push(res.data);
+          return {
+            ...prev,
+            allTodos: prev.allTodos.map(todo => {
+              if(todo._id === _id){
+                return todoToUpdate
+              }else {
+                return todo
+              }
+            })
+          };
+        });
+      })
+      .catch(err => console.log(err));
+  }
+
+  const getComments = (_id) => {
+    userAxios.get(`/api/comment/${_id}`)
+      .then(res => {
+        setUserState(prev => {
+          const todoToUpdate = prev.allTodos.find(todo => todo._id === _id)
+          todoToUpdate.comments = res.data;
+          // todoToUpdate.comments.push(res.data);
+          return {
+            ...prev,
+            allTodos: prev.allTodos.map(todo => {
+              if(todo._id === _id){
+                return todoToUpdate
+              }else {
+                return todo
+              }
+            })
+          };
+        });
+      })
+      .catch(err => console.log(err));
+  }
+
 
   function upVote(id){
     userAxios.put(`/api/todo/upvote/${id}`)
@@ -163,6 +219,7 @@ export default function UserProvider(props){
         resetAuthErr,
         upVote,
         downVote,
+        addComment,
         getComments
       }}>
       { props.children }

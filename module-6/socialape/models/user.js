@@ -20,6 +20,10 @@ const userSchema = new Schema({
   isAdmin: {
     type: Boolean,
     default: false
+  },
+  img:{
+    type: String, 
+    default:"https://www.ankersmid.eu/wp-content/uploads/2015/10/Facebook-no-profile-picture-icon-620x389.jpg"
   }
 })
 

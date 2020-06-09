@@ -7,7 +7,8 @@ import { UserContext } from '../context/UserProvider.js'
 export default function Profile(){
   const { 
     user: { 
-      username 
+      username ,
+      img
     }, 
     addTodo, 
     todos ,
@@ -16,6 +17,7 @@ export default function Profile(){
 
   return (
     <div className="profile">
+      <img src={img} className="profile-img"/>
       <h1>Welcome @{username}!</h1>
       <h3>Add A Todo</h3>
       <TodoForm addTodo={addTodo}/>
