@@ -50,7 +50,7 @@ export default function UserProvider(props){
           token
         }))
       })
-      .catch(err => handelAuthErr(err.response.data.errMsg))
+      .catch(err => handelAuthErr(err))
   }
 
   function logout(){
@@ -94,7 +94,7 @@ export default function UserProvider(props){
       .then(res => {
         setUserState(prevState => ({
           ...prevState,
-          todos: [...prevState.todos, res.data]
+          allTodos: [...prevState.allTodos, res.data]
         }))
       })
       .catch(err => console.log(err.response.data.errMsg))
@@ -111,6 +111,16 @@ export default function UserProvider(props){
       .catch(err => console.log(err))
   }
   
+  function getSearchTodos(){
+    userAxios.get("/api/todo/search")
+      .then(res => {
+        setUserState(prevState => ({
+          ...prevState,
+          todos: res.data
+        }))
+      })
+      .catch(err => console.log(err.response.data.errMsg))
+  }
   // const addComment = (_id, comment) => {
   //   issueAxios
   //     .post(`/api/comment/${_id}`, comment)
@@ -145,6 +155,7 @@ export default function UserProvider(props){
         setUserState(prev => {
           const todoToUpdate = prev.allTodos.find(todo => todo._id === _id)
           todoToUpdate.comments.push(res.data);
+          console.log(todoToUpdate, 'ADD')
           return {
             ...prev,
             allTodos: prev.allTodos.map(todo => {
@@ -160,13 +171,18 @@ export default function UserProvider(props){
       .catch(err => console.log(err));
   }
 
+  
+
   const getComments = (_id) => {
     userAxios.get(`/api/comment/${_id}`)
       .then(res => {
         setUserState(prev => {
-          const todoToUpdate = prev.allTodos.find(todo => todo._id === _id)
+          console.log(res.data, 'get')
+          console.log(prev, 'prev')
+          console.log(_id)
+          const todoToUpdate = prev.todos.find(todo => todo._id === _id)
           todoToUpdate.comments = res.data;
-          // todoToUpdate.comments.push(res.data);
+          todoToUpdate.comments.push(res.data);
           return {
             ...prev,
             allTodos: prev.allTodos.map(todo => {
@@ -220,7 +236,8 @@ export default function UserProvider(props){
         upVote,
         downVote,
         addComment,
-        getComments
+        getComments,
+        getSearchTodos
       }}>
       { props.children }
     </UserContext.Provider>

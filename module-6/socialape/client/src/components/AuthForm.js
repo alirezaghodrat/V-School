@@ -13,21 +13,26 @@ export default function AuthForm(props){
   } = props
   
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="text-container">
+    <img src={"https://raw.githubusercontent.com/hidjou/classsed-react-firebase-client/master/src/images/icon.png"} height={64} width={64}/>
+    <form className="text-seprator" onSubmit={handleSubmit}>
       <input 
         type="text" 
         value={username} 
         name="username" 
         onChange={handleChange} 
-        placeholder="Username"/>
+        placeholder="Username"
+        className="input-text"/>
       <input 
         type="text" 
         value={password} 
         name="password" 
         onChange={handleChange} 
-        placeholder="Password"/>
-      <button>{ btnText }</button>
+        placeholder="Password"
+        className="input-text"/>
+      <button className="button-text">{ btnText }</button>
       <p style={{color:"red"}}>{errMsg}</p>
     </form>
+    </div>
   )
 }

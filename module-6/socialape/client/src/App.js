@@ -5,6 +5,7 @@ import Auth from './components/Auth.js'
 import Profile from './components/Profile.js'
 import Public from './components/Public.js'
 import ProtectedRoute from './components/ProtectedRoute.js'
+import UserPosts from "./components/UserPosts.js"
 import { UserContext } from './context/UserProvider.js'
 
 
@@ -19,8 +20,14 @@ export default function App(){
           render={()=> token ? <Redirect to="/profile"/> : <Auth />}
         />
         <ProtectedRoute 
-          path="/profile"
+          exact path="/profile"
           component={Profile}
+          redirectTo="/"
+          token={token}
+        />
+         <ProtectedRoute 
+          path="/profile/:userId"
+          component={UserPosts}
           redirectTo="/"
           token={token}
         />

@@ -2,7 +2,8 @@ import React, { useContext,useState, useEffect } from 'react'
 import { UserContext } from "../context/UserProvider.js"
 import Comments from "./comment/Comments.js";
 import CommentForm from "./comment/CommentForm.js";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
+
 
 
 export default function Todo(props){
@@ -16,8 +17,8 @@ export default function Todo(props){
   
 
   useEffect(() => {
-     getComments(_id);
-  }, []);
+     getComments();
+  }, [getComments]);
 
   const toggler = () => {
     setCommentToggle(p => !p)
@@ -28,15 +29,19 @@ export default function Todo(props){
     console.log(_id, commentInput)
     addComment(_id, { text: commentInput });
   };
+  
+
   return (
     <div className="todo">
+      <Link to={`/profile/${_id}`}>
       <h1>{username}</h1>
+      </Link>
       <img src={imgUrl} alt={imgUrl} width={300}/>
       <h1>{ title }</h1>
       <h3>{ description }</h3>
       <h1>LIKES: {vote}</h1>
-      <button onClick={() => upVote(_id)}>like</button>
-      <button onClick={() => downVote(_id)}>unlike</button>
+      <button onClick={() => upVote(_id)}>{"👍"}</button>
+      <button onClick={() => downVote(_id)}>{"👎"}</button>
       <button onClick={toggler}>Comments</button>
       {commentToggle && (
         <div>

@@ -1,13 +1,20 @@
-import React from 'react'
+import React,{ useContext } from 'react'
 import { Link } from 'react-router-dom'
+import SearchTodo from './SearchTodo.js'
+import { UserContext } from '../context/UserProvider.js'
+
 
 export default function Navbar(props){
+  const { getSearchTodos } = useContext(UserContext)
   const { logout , token} = props
   return (
-    <div className="navbar">
-      { token && <Link to="/profile">Profile</Link>}
+    <>
+      { token && <div className= "navbar" >
+       <Link to="/profile">Profile</Link>
       <Link to="/public">Public</Link>
-      { token && <button onClick={logout}>Logout</button>}
-    </div>
+      <SearchTodo getSearchTodos={getSearchTodos}/>
+      <button onClick={logout}>Logout</button>
+    </div>}
+    </>
   )
 }

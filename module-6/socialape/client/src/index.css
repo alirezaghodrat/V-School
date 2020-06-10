@@ -12,21 +12,71 @@
   background-color: #eee9;
 }
 
+.button-text{
+  background-color: rgb(29, 161, 242);
+  min-height: 49px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-top-style: solid;
+  border-bottom-left-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  width: 100%;
+}
+
+.input-text{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.text-container{
+    margin-top: 40px;
+    max-width: 600px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .navbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 40px;
   background-color: #3339;
+  position: fixed;
+  width: 100%;
 }
+.text-seprator{
+  padding-top: 60px;
 
-.auth-container {
+}
+ .auth-container {
   display: flex;
   align-items: center;
   flex-direction: column;
   height: 100vh;
 }
 
+/*
 .auth-container > h1 {
   font-size: 2em;
   margin: 24px;
@@ -57,7 +107,7 @@
   margin: 16px 8px;
   padding: 8px;
   border-radius: 4px;
-}
+} */
 
 
 .public {
