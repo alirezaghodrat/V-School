@@ -25,6 +25,7 @@ const userSchema = new Schema({
     type: String, 
     default:"https://www.ankersmid.eu/wp-content/uploads/2015/10/Facebook-no-profile-picture-icon-620x389.jpg"
   }
+
 })
 
 //pre save hook to encrypt user passwords on signup

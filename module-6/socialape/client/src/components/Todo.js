@@ -7,7 +7,7 @@ import { useParams,Link } from "react-router-dom";
 
 
 export default function Todo(props){
-  const { upVote, downVote ,getComments,addComment} = useContext(UserContext)
+  const { user:{img, _id: userId},upVote, downVote ,getComments,addComment} = useContext(UserContext)
   const { username,title, description,_id ,imgUrl ,vote ,comments } = props
   // const { _id } = useParams();
   console.log(props)
@@ -17,7 +17,7 @@ export default function Todo(props){
   
 
   useEffect(() => {
-     getComments();
+     getComments(_id);
   }, [getComments]);
 
   const toggler = () => {
@@ -33,10 +33,11 @@ export default function Todo(props){
 
   return (
     <div className="todo">
-      <Link to={`/profile/${_id}`}>
+      <Link to={`/profile/${userId}`} className="img-name-user">
+        <img src={img} className="img-user"/>
       <h1>{username}</h1>
       </Link>
-      <img src={imgUrl} alt={imgUrl} width={300}/>
+      <img src={imgUrl} alt={imgUrl} width={300} height={300}/>
       <h1>{ title }</h1>
       <h3>{ description }</h3>
       <h1>LIKES: {vote}</h1>

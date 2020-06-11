@@ -78,7 +78,7 @@ export default function UserProvider(props){
     }))
   }
 
-  function getUserTodos(){
+  const getUserTodos = useCallback(() => {
     userAxios.get("/api/todo/user")
       .then(res => {
         setUserState(prevState => ({
@@ -87,9 +87,9 @@ export default function UserProvider(props){
         }))
       })
       .catch(err => console.log(err.response.data.errMsg))
-  }
+  },[])
 
-  function addTodo(newTodo){
+  function addTodo (newTodo){
     userAxios.post("/api/todo", newTodo)
       .then(res => {
         setUserState(prevState => ({
@@ -100,7 +100,7 @@ export default function UserProvider(props){
       .catch(err => console.log(err.response.data.errMsg))
   }
 
-  function getAllTodos(){
+  const getAllTodos = useCallback(() =>{
     userAxios.get("/api/todo")
       .then(res => {
         setUserState(prevState => ({
@@ -109,14 +109,15 @@ export default function UserProvider(props){
         }))
       })
       .catch(err => console.log(err))
-  }
+  }, [])
   
-  function getSearchTodos(){
-    userAxios.get("/api/todo/search")
+  function getSearchTodos(title){
+    userAxios.get(`/api/todo/search?todo=${title}`)
       .then(res => {
         setUserState(prevState => ({
           ...prevState,
-          todos: res.data
+          todos: res.data,
+          allTodos: res.data
         }))
       })
       .catch(err => console.log(err.response.data.errMsg))
@@ -153,7 +154,7 @@ export default function UserProvider(props){
       userAxios.post(`/api/comment/${_id}`, comment)
       .then(res => {
         setUserState(prev => {
-          const todoToUpdate = prev.allTodos.find(todo => todo._id === _id)
+          const todoToUpdate = [...prev.allTodos, ...prev.todos].find(todo => todo._id === _id)
           todoToUpdate.comments.push(res.data);
           console.log(todoToUpdate, 'ADD')
           return {
@@ -173,19 +174,26 @@ export default function UserProvider(props){
 
   
 
-  const getComments = (_id) => {
+  const getComments = useCallback( (_id) => {
     userAxios.get(`/api/comment/${_id}`)
       .then(res => {
         setUserState(prev => {
           console.log(res.data, 'get')
           console.log(prev, 'prev')
           console.log(_id)
-          const todoToUpdate = prev.todos.find(todo => todo._id === _id)
+          const todoToUpdate = [...prev.allTodos, ...prev.todos].find(todo => todo._id === _id)
           todoToUpdate.comments = res.data;
-          todoToUpdate.comments.push(res.data);
+         
           return {
             ...prev,
             allTodos: prev.allTodos.map(todo => {
+              if(todo._id === _id){
+                return todoToUpdate
+              }else {
+                return todo
+              }
+            }),
+            todos: prev.todos.map(todo => {
               if(todo._id === _id){
                 return todoToUpdate
               }else {
@@ -196,7 +204,7 @@ export default function UserProvider(props){
         });
       })
       .catch(err => console.log(err));
-  }
+  },[])
 
 
   function upVote(id){
@@ -237,7 +245,8 @@ export default function UserProvider(props){
         downVote,
         addComment,
         getComments,
-        getSearchTodos
+        getSearchTodos,
+        getUserTodos
       }}>
       { props.children }
     </UserContext.Provider>

@@ -25,6 +25,21 @@ todoRouter.get("/user", (req, res, next) => {
   })
 })
 
+
+//get todo by search term
+todoRouter.get("/search", (req, res, next) => {
+  const {todo} = req.query
+  const pattern = new RegExp(todo)
+  Todo.find({ title: { $regex:pattern , $options: 'i'}},
+  (err, todos) => {
+    if(err){
+      res.status(500)
+      return next(err)
+    }
+    return res.status(200).send(todos)
+  })
+})
+
 // Get issue and its comments by _id
   todoRouter.get("/:todoId" ,async (req, res, next) => {
     try {
@@ -36,20 +51,6 @@ todoRouter.get("/user", (req, res, next) => {
       return next(err);
     }
   })
-
-//get todo by search term
-todoRouter.get("/search", (req, res, next) => {
-  const {todo} = req.query
-  const pattern = new RegExp(todo)
-  Todo.find({ title: { $regex:pattern , $option: 'i'}},
-   (err, todos) => {
-    if(err){
-      res.status(500)
-      return next(err)
-    }
-    return res.status(200).send(todos)
-  })
-})
 
 // Add new Todo
 todoRouter.post("/", (req, res, next) => {

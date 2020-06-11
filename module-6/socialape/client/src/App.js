@@ -10,7 +10,7 @@ import { UserContext } from './context/UserProvider.js'
 
 
 export default function App(){
-  const { token, logout } = useContext(UserContext)
+  const { token, logout, getUserTodos, todos } = useContext(UserContext)
   return (
     <div className="app">
        <Navbar logout={logout} token={token}/>
@@ -26,10 +26,12 @@ export default function App(){
           token={token}
         />
          <ProtectedRoute 
-          path="/profile/:userId"
+          path="/profile/:user"
           component={UserPosts}
           redirectTo="/"
           token={token}
+          getUserTodos={getUserTodos}
+          todos={todos}
         />
         <ProtectedRoute
           path="/public"

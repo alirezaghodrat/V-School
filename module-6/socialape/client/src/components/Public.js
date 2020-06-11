@@ -8,7 +8,7 @@ export default function Public(){
 
   useEffect(() => {
     getAllTodos()
-  }, [allTodos])
+  }, [getAllTodos])
 
 
   return (

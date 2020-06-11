@@ -5,6 +5,12 @@ export default function SearchTodo(props){
     const [newTodoValue, setNewTodoValue] = useState("")
     const [todosList, setTodosList] = useState([])
     // const inputRef = useRef(null)
+    const {getSearchTodos} = props
+
+
+    // const {userId} = useParams()
+    // const thisuser = username.find(user => user._id === userId)
+
 
     function handleChange(event) {
         setNewTodoValue(event.target.value)
@@ -17,16 +23,21 @@ export default function SearchTodo(props){
         // inputRef.current.focus()
         //ref={inputRef}
     }
+
+    function handleSubmit(e){
+        e.preventDefault()
+        getSearchTodos(newTodoValue)
+    }
     
-    const allTodos = todosList.map(todo => <p key={todo}>{todo}</p>)
+  
   
     return (
         <div>
-            <form>
-                <input  type="text" name="todo" value={newTodoValue} onChange={handleChange}/>
-                <button onClick={addTodo}>search</button>
+            <form onSubmit={handleSubmit}>
+                <input  className="input-search" placeholder="search title" type="text" name="todo" value={newTodoValue} onChange={handleChange}/>
+                <button className="search" >🔎</button>
             </form>
-            {allTodos}
+          
         </div>
     )
 }

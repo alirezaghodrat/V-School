@@ -19,9 +19,9 @@ export default function Profile(){
     <div className="profile">
       <img src={img} className="profile-img"/>
       <h1>Welcome @{username}!</h1>
-      <h3>Add A Todo</h3>
+      <h3>Add A photo</h3>
       <TodoForm addTodo={addTodo}/>
-      <h3>Your Todos</h3>
+      <h3>👇👇 Your photo 👇👇</h3>
       <TodoList todos={todos} getComments={getComments}/>
     </div>
   )

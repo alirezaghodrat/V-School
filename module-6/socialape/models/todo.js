@@ -32,6 +32,10 @@ const todoSchema = new Schema({
   },
   username: {
     type: String
+  },
+  comments: {
+    type: Array,
+    default: []
   }
 })
 

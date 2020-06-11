@@ -24,6 +24,7 @@ app.use('/auth', require('./routes/authRouter.js'))
 app.use('/api', expressJwt({ secret: process.env.SECRET })) // req.user
 app.use('/api/todo', require('./routes/todoRouter.js'))
 app.use("/api/comment", require("./routes/commentRouter.js"))
+app.use('/api/uploads', require('./routes/imageRouter.js'))
 
 app.use((err, req, res, next) => {
   console.log(err)
