@@ -16,8 +16,7 @@ export default function AuthForm(props){
   
   return (
     <div className="text-container">
-    {/* <img src={"https://raw.githubusercontent.com/hidjou/classsed-react-firebase-client/master/src/images/icon.png"} height={64} width={64}/> */}
-    <img src={img} height={64} width={64}/>
+    <img src={"https://raw.githubusercontent.com/hidjou/classsed-react-firebase-client/master/src/images/icon.png"} height={64} width={64}/>
     <form className="text-seprator" onSubmit={handleSubmit}>
       <input 
         type="text" 

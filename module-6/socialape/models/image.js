@@ -11,7 +11,7 @@ const imageSchema = new Schema({
     type: String, 
     required:true 
   },
-  recepient: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: "User",
     required: true
