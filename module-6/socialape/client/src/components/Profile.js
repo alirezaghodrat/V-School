@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import TodoForm from './TodoForm.js'
 import TodoList from './TodoList.js'
 import Todo from './Todo.js'
@@ -8,12 +8,18 @@ export default function Profile(){
   const { 
     user: { 
       username ,
-      img
+      img,
+      _id
     }, 
     addTodo, 
     todos ,
-    getComments
+    getComments,
+    getUserTodos
   } = useContext(UserContext)
+
+  useEffect(() => {
+    getUserTodos(_id)
+  }, [])
 
   return (
     <div className="profile">

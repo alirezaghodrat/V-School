@@ -8,7 +8,7 @@ import { useParams,Link } from "react-router-dom";
 
 export default function Todo(props){
   const { user:{img, _id: userId},upVote, downVote ,getComments,addComment} = useContext(UserContext)
-  const { username,title, description,_id ,imgUrl ,vote ,comments } = props
+  const { username,title, description,_id ,imgUrl ,vote ,comments, user } = props
   // const { _id } = useParams();
   console.log(props)
 
@@ -33,7 +33,7 @@ export default function Todo(props){
 
   return (
     <div className="todo">
-      <Link to={`/profile/${userId}`} className="img-name-user">
+      <Link to={`/profile/${user}`} className="img-name-user">
         <img src={img} className="img-user"/>
       <h1>{username}</h1>
       </Link>

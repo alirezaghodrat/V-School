@@ -11,11 +11,10 @@ export default function SearchTodo(props){
     // const {userId} = useParams()
     // const thisuser = username.find(user => user._id === userId)
 
-
     function handleChange(event) {
         setNewTodoValue(event.target.value)
     }
-    
+ 
     function addTodo(event) {
         event.preventDefault()
         setTodosList(prevTodosList => [...prevTodosList, newTodoValue])

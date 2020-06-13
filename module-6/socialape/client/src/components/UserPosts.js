@@ -8,7 +8,7 @@ function UserPosts(props) {
 
     useEffect(() => {
        getUserTodos(userID)
-    }, [getUserTodos])
+    }, [getUserTodos, userID])
     return(
          <div className="user-post">
             { todos.map(todo =>  <Todo {...todo} /> ) }

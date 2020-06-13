@@ -23,7 +23,7 @@ const userSchema = new Schema({
   },
   img:{
     type: String, 
-    default:"https://www.ankersmid.eu/wp-content/uploads/2015/10/Facebook-no-profile-picture-icon-620x389.jpg"
+    default: "https://www.ankersmid.eu/wp-content/uploads/2015/10/Facebook-no-profile-picture-icon-620x389.jpg"
   }
 
 })

@@ -50,7 +50,7 @@ export default function UserProvider(props){
           token
         }))
       })
-      .catch(err => handelAuthErr(err))
+      .catch(err => handelAuthErr(err.response.data.errMsg))
   }
 
   function logout(){
@@ -78,8 +78,8 @@ export default function UserProvider(props){
     }))
   }
 
-  const getUserTodos = useCallback(() => {
-    userAxios.get("/api/todo/user")
+  const getUserTodos = useCallback((userID) => {
+    userAxios.get("/api/todo/user/" + userID)
       .then(res => {
         setUserState(prevState => ({
           ...prevState,

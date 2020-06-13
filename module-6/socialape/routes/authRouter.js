@@ -15,6 +15,7 @@ authRouter.post("/signup", (req, res, next) => {
       return next(new Error("That username is already taken"))
     }
     const newUser = new User(req.body)
+    newUser.img = "https://www.ankersmid.eu/wp-content/uploads/2015/10/Facebook-no-profile-picture-icon-620x389.jpg"
     newUser.save((err, savedUser) => {
       if(err){
         res.status(500)

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import axios from 'axios'
 
 export default function AuthForm(props){
   const {
@@ -13,6 +13,20 @@ export default function AuthForm(props){
       img
     } 
   } = props
+
+  function uploadImg(){
+    const fileData = new File(
+      new Buffer(img),
+      img
+    )
+    const data = new FormData()
+    data.append("file", fileData)
+    const config = { headers: { "Content-Type": "multipart/form-data" } }
+    console.log(data)
+    axios.post("/profile", data, config)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+  }
   
   return (
     <div className="text-container">
@@ -32,15 +46,17 @@ export default function AuthForm(props){
         onChange={handleChange} 
         placeholder="Password"
         className="input-text"/>
-        <input 
-        type="text" 
+        
+      <button className="button-text">{ btnText }</button>
+      <p style={{color:"red"}}>{errMsg}</p>
+    </form>
+    <input 
+        type="file" 
         name="img" 
         value={img} 
         onChange={handleChange} 
         placeholder="Image profile"/>
-      <button className="button-text">{ btnText }</button>
-      <p style={{color:"red"}}>{errMsg}</p>
-    </form>
+        <button onClick={uploadImg}>upload img</button>
     </div>
   )
 }
