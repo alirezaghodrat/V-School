@@ -47,7 +47,7 @@ export default function Auth(){
             btnText="Sign up"
             errMsg={errMsg}
           />
-          <p onClick={toggleForm}>Already a member?</p>
+          <p className="login-signup" onClick={toggleForm}>Already a member? click here 👈 👈</p>
         </>
       :
         <>
@@ -58,7 +58,7 @@ export default function Auth(){
             btnText="Login"
             errMsg={errMsg}
           />
-          <p onClick={toggleForm}>Not a member?</p>
+          <p className="login-signup" onClick={toggleForm}>Not a member? click here 👈 👈</p>
         </>
       }
     </div>

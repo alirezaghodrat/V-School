@@ -37,7 +37,7 @@ export default function Todo(props){
         <img src={"https://www.ankersmid.eu/wp-content/uploads/2015/10/Facebook-no-profile-picture-icon-620x389.jpg"} className="img-user"/>
       <h1>{username}</h1>
       </Link>
-      <img src={imgUrl} alt={imgUrl} width={300} height={300}/>
+      <img src={imgUrl} alt={imgUrl} className="img-url"/>
       <h1>{ title }</h1>
       <h3>{ description }</h3>
       <h1>LIKES: {vote}</h1>
