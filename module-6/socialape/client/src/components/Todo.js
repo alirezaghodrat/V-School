@@ -34,7 +34,7 @@ export default function Todo(props){
   return (
     <div className="todo">
       <Link to={`/profile/${user}`} className="img-name-user">
-        <img src={img} className="img-user"/>
+        <img src={"https://www.ankersmid.eu/wp-content/uploads/2015/10/Facebook-no-profile-picture-icon-620x389.jpg"} className="img-user"/>
       <h1>{username}</h1>
       </Link>
       <img src={imgUrl} alt={imgUrl} width={300} height={300}/>

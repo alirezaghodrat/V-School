@@ -23,7 +23,7 @@ export default function Profile(){
 
   return (
     <div className="profile">
-      <img src={img} className="profile-img"/>
+      <img src={"https://www.ankersmid.eu/wp-content/uploads/2015/10/Facebook-no-profile-picture-icon-620x389.jpg"} className="profile-img"/>
       <h1>Welcome @{username}!</h1>
       <h3>Add A photo</h3>
       <TodoForm addTodo={addTodo}/>

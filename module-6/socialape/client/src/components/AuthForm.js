@@ -50,13 +50,13 @@ export default function AuthForm(props){
       <button className="button-text">{ btnText }</button>
       <p style={{color:"red"}}>{errMsg}</p>
     </form>
-    <input 
+    {/* <input 
         type="file" 
         name="img" 
         value={img} 
         onChange={handleChange} 
         placeholder="Image profile"/>
-        <button onClick={uploadImg}>upload img</button>
+        <button onClick={uploadImg}>upload img</button> */}
     </div>
   )
 }
