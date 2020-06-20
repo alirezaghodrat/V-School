@@ -36,6 +36,7 @@ function Contact(){
                          <h3>Databases</h3>
                          <ul>
                             <li>MongoDB</li>
+                            <li>SQL</li>
                         </ul>
                     </div>
                     <div className="each-skill-div">

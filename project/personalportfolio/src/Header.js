@@ -1,7 +1,7 @@
 import React from "react"
 import family from "./my-family.JPG"
 import currencyPreview from './currency-preview.png'
-import speedgame from './speedgame.png'
+import socialapp from './socialapp.png'
 
 function Header(){
 
@@ -24,7 +24,13 @@ function Header(){
                     <div className="p-container">
                         <p className="p">Speed Games Built with React, JavaScript, HTML and CSS with pushing start you have 10S to type</p>
                     </div>
-        </div>
+            </div>
+            <div className="img-holder"> 
+                    <a href="https://enigmatic-coast-73886.herokuapp.com/"><img className="box" height="100px" src="https://www.dpreview.com/files/p/articles/2938265592/AP_main.jpeg"/></a>
+                    <div className="p-container">
+                        <p className="p">full stack project frontEnd Built with React, JavaScript, BackEnd with mongDB</p>
+                    </div>
+            </div>
         </div>
     )
 }

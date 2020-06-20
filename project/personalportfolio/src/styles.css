@@ -161,6 +161,7 @@ body{
         border-radius: 50%;
         color:aliceblue;
         transition: all 0.9s ease-in-out;
+        padding: 5px;
 
     }
 
@@ -443,8 +444,9 @@ body{
         height: 70px;
     }
     .box{
-        width:150px;
-        height: 150px;
+        padding: 5px;
+        width:120px;
+        height: 120px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -470,7 +472,7 @@ body{
         position: absolute;
         display: none;
         bottom: 0px; 
-        width: 150px;
+        width: 120px;
     }
     .img-holder{
         display: flex;
