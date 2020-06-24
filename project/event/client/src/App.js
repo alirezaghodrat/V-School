@@ -4,7 +4,7 @@ import React,{  useEffect } from 'react';
 function App() {
 
   useEffect(()=>{
-    fetch("http://data.fixer.io/api/latest?access_key=")
+    fetch()
         .then(res => res.json())
         .then(res => {
             // setRates(res.rates)
