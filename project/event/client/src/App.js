@@ -3,7 +3,7 @@ import React,{  useEffect } from 'react';
 
 function App() {
 
-  useEffect(()=>{
+  useEffect(("https://covidtracking.com/api/v1/states/daily.json")=>{
     fetch()
         .then(res => res.json())
         .then(res => {
